@@ -19,9 +19,8 @@
       .rd-nav-link { font-weight: 700 !important; letter-spacing: 0.01em; }
       .rd-nav-link.text-blue-custom { color: #007bff !important; }
       .rd-nav-link.text-blue-custom:hover { color: #0056b3 !important; }
-      .rd-navbar-nav-wrap:hover { box-shadow: 0 0 10px rgba(0, 123, 255, 0.2); }
 
-      /* Sekcja Parallax Header */
+      /* Sekcje Parallax */
       .section.parallax-container-custom {
         position: relative;
         z-index: 0;
@@ -30,7 +29,6 @@
         align-items: center;
         background-image: url('https://static.wixstatic.com/media/e0bdea_72c269401a4b48e5984a03052f19f41c~mv2.png');
         background-size: cover;
-        background-repeat: no-repeat;
         background-position: center 100px;
         background-attachment: fixed;
       }
@@ -41,90 +39,63 @@
         background: linear-gradient(to right, rgba(30, 50, 75, 0.95) 0%, rgba(30, 50, 75, 0.6) 40%, rgba(30, 50, 75, 0.0) 100%);
         z-index: 1;
       }
-      .parallax-content-custom { position: relative; z-index: 2; width: 100%; }
 
-      /* Sekcja Custom Overlay */
       .custom-parallax-overlay {
         position: relative;
-        height: 500px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        padding: 100px 0;
         background-image: url('https://static.wixstatic.com/media/e0bdea_376d134a250d46248406686f68d5e4ba~mv2.png');
         background-size: cover;
-        background-position: center;
         background-attachment: fixed;
-        z-index: 1;
+        color: #fff;
       }
       .custom-parallax-overlay::before {
         content: "";
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 0;
+        background: rgba(0, 0, 0, 0.7);
       }
-      .custom-parallax-overlay .container { position: relative; z-index: 2; }
-      .custom-parallax-overlay h3, .custom-parallax-overlay p, .custom-parallax-overlay .badge { color: #ffffff !important; }
 
       /* Model 3D */
       .model-wrapper {
-        width: 100%; height: 600px; border-radius: 8px; overflow: hidden;
-        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1); background-color: #ffffff;
-        border: 1px solid #e1e1e1; position: relative;
+        width: 100%; height: 500px; border-radius: 8px; overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #e1e1e1;
       }
-      model-viewer { width: 100%; height: 100%; }
 
-      /* Technologia Cards */
-      .shs-tech-section { padding: 100px 0; background-color: #ffffff; }
+      /* Fotowoltaika - Poprawione Karty */
+      .shs-tech-section { padding: 80px 0; background: #fff; }
       .shs-tech-card {
-        background: #f8f9fa; padding: 40px 30px; border-radius: 12px; border: 1px solid #e9ecef;
-        text-align: center; transition: all 0.3s ease; height: 100%; position: relative;
+        padding: 40px; border-radius: 15px; background: #fdfdfd;
+        border: 1px solid #eee; transition: all 0.3s ease; height: 100%;
+        text-align: center;
       }
-      .shs-tech-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 123, 255, 0.15); border-color: #007bff; }
+      .shs-tech-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,123,255,0.1); border-color: #007bff; }
       .shs-icon-wrapper {
-        width: 80px; height: 80px; background: #fff; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center; margin: 0 auto 25px;
-        border: 2px solid #007bff; transition: 0.3s;
+        width: 70px; height: 70px; line-height: 70px; border-radius: 50%;
+        background: #007bff; color: #fff; font-size: 30px; margin: 0 auto 20px;
       }
-      .shs-tech-card:hover .shs-icon-wrapper { background: #007bff; }
-      .shs-tech-card:hover .shs-tech-icon { color: #fff; }
-      .shs-tech-icon { font-size: 36px; color: #007bff; }
-      .tech-list li { margin-bottom: 12px; padding-left: 25px; position: relative; list-style: none; }
-      .tech-list li::before { content: '✓'; position: absolute; left: 0; color: #0d6efd; font-weight: bold; }
 
-      /* Footer */
-      .footer-classic { background-color: #007bff; color: #ffffff !important; }
-      .footer-classic-aside { background-color: #0056b3; padding: 20px 0; }
-      .shs-social-row { display: flex; gap: 15px; margin-top: 20px; align-items: center; }
-      .footer-classic a, .footer-classic p, .footer-classic h4 { color: #fff !important; }
-
-      @media (max-width: 1024px) {
-        .section.parallax-container-custom { background-attachment: scroll; background-position: center; }
-      }
+      /* Stopka - Pełna Naprawa */
+      .footer-classic { background: #007bff; color: #fff; padding: 60px 0 0; }
+      .footer-classic h4 { color: #fff; font-weight: 700; margin-bottom: 20px; }
+      .footer-classic a { color: rgba(255,255,255,0.8); transition: 0.3s; }
+      .footer-classic a:hover { color: #fff; text-decoration: none; }
+      .footer-classic .shs-social-row { display: flex; gap: 15px; font-size: 24px; margin-top: 15px; }
+      .footer-classic-aside { background: #0056b3; padding: 20px 0; margin-top: 40px; }
+      
+      .tech-list li { position: relative; padding-left: 25px; margin-bottom: 10px; list-style: none; }
+      .tech-list li::before { content: '✓'; position: absolute; left: 0; color: #007bff; font-weight: bold; }
     </style>
   </head>
   <body>
-    <div class="preloader" id="loading">
-      <div class="preloader-body">
-        <div id="loading-center-object">
-          <div class="object" id="object_four"></div>
-          <div class="object" id="object_three"></div>
-          <div class="object" id="object_two"></div>
-          <div class="object" id="object_one"></div>
-        </div>
-      </div>
-    </div>
-
     <div class="page">
       <header class="section page-header">
         <div class="rd-navbar-wrap">
-          <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-lg-stick-up="true" data-xl-stick-up="true">
+          <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-lg-stick-up="true">
             <div class="rd-navbar-main">
               <div class="rd-navbar-panel">
                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                 <div class="rd-navbar-brand">
-                  <a class="brand" href="index.html"><img src="images/logo-default-297x63.png" alt="" width="150"/></a>
+                  <a class="brand" href="index.html"><img src="images/logo-default-297x63.png" alt="SHS Logo" width="150"/></a>
                 </div>
               </div>
               <div class="rd-navbar-nav-wrap">
@@ -151,39 +122,14 @@
 
       <section class="section parallax-container-custom context-dark">
         <div class="parallax-content-custom">
-          <div class="container">
-            <div class="block-custom">
-              <h2 class="font-weight-extra-black wow clipInLeft">Palniki Przemysłowe Dużej oraz Małej Mocy</h2>
-              <h4 class="wow clipInLeft" data-wow-delay=".1s">Zaawansowane rozwiązania w technologii spalania dla przemysłu.</h4>
-              <div class="group-xl group-middle">
-                <a class="button button-lg button-white button-winona wow clipInLeft" href="about-us.html">O firmie</a>
-                <a class="button button-lg button-primary button-winona wow clipInLeft" href="contact-us.html">Kontakt</a>
-              </div>
+          <div class="container text-left">
+            <h2 class="font-weight-extra-black wow clipInLeft">Palniki Przemysłowe<br>Dużej oraz Małej Mocy</h2>
+            <h4 class="wow clipInLeft" data-wow-delay=".1s">Zaawansowane rozwiązania w technologii spalania dla przemysłu.</h4>
+            <div class="group-xl mt-4">
+              <a class="button button-lg button-white button-winona" href="about-us.html">O firmie</a>
+              <a class="button button-lg button-primary button-winona" href="contact-us.html">Kontakt</a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="section section-lg">
-        <div class="container">
-          <div class="row row-50 align-items-center">
-            <div class="col-lg-5 wow fadeInRightSmall">
-              <div class="badge">Serwis Przemysłowy</div>
-              <h3>Obsługa Palników Wszystkich Typów</h3>
-              <p class="big">Obsługujemy palniki gazowe, olejowe oraz peletowe. Specjalizujemy się w regulacji palników w dopalaczach RTO dla redukcji LZO.</p>
-            </div>
-            <div class="col-lg-7 text-center wow fadeInLeftSmall">
-              <img src="https://static.wixstatic.com/media/e0bdea_eab65111232a4a21ac2e98844371cfdf~mv2.webp" alt="Serwis" style="max-width:100%; border-radius:8px;">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section custom-parallax-overlay">
-        <div class="container text-center">
-          <div class="badge">Serwis SHS</div>
-          <h3>Palniki Gazowe - Gwarancja Oszczędności</h3>
-          <p class="big">Precyzyjna regulacja to niższe zużycie gazu i bezpieczeństwo.</p>
         </div>
       </section>
 
@@ -191,47 +137,42 @@
       <section class="section section-lg bg-default">
         <div class="container">
           <div class="row row-50 align-items-center">
-            <div class="col-lg-6 wow clipInLeft">
+            <div class="col-lg-6">
               <div class="model-wrapper">
-                <model-viewer 
-                  src="https://static.wixstatic.com/3d/e0bdea_5faa07866e1a4a0ea3642b82d8a1ecd6.glb" 
-                  alt="Model 3D Palnika" camera-controls auto-rotate shadow-intensity="1">
-                </model-viewer>
+                <model-viewer src="https://static.wixstatic.com/3d/e0bdea_5faa07866e1a4a0ea3642b82d8a1ecd6.glb" alt="Model 3D Palnika" camera-controls auto-rotate shadow-intensity="1"></model-viewer>
               </div>
             </div>
-            <div class="col-lg-6 wow clipInRight">
+            <div class="col-lg-6">
               <div class="badge">Technologia SHS</div>
               <h3>Zasada Działania i Ekonomia</h3>
-              <ul class="tech-list big">
+              <ul class="tech-list big mt-3">
                 <li><strong>Idealna mieszanka (Lambda):</strong> Optymalizacja stosunku powietrza do gazu.</li>
-                <li><strong>Czystość wymiennika:</strong> Zapobieganie osadzaniu sadzy.</li>
-                <li><strong>Żywotność:</strong> Prewencyjna kontrola podzespołów.</li>
+                <li><strong>Czystość wymiennika:</strong> Zapobieganie osadzaniu sadzy i strat ciepła.</li>
+                <li><strong>Żywotność:</strong> Prewencyjna kontrola zapobiegająca awariom.</li>
               </ul>
-              <a class="button button-primary button-winona mt-4" href="contact-us.html">Zamów audyt</a>
+              <a class="button button-primary button-winona mt-4" href="contact-us.html">Zamów audyt spalania</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="shs-tech-section">
-        <div class="container">
-          <div class="text-center mb-5">
-            <div class="badge">Fotowoltaika Hybrydowa</div>
-            <h2>Autokonsumpcja to klucz</h2>
-          </div>
+      <section class="shs-tech-section bg-light">
+        <div class="container text-center">
+          <div class="badge">Eko Energia</div>
+          <h2 class="mb-5">Fotowoltaika Hybrydowa: Autokonsumpcja</h2>
           <div class="row row-30 justify-content-center">
-            <div class="col-md-5">
+            <div class="col-md-5 wow fadeInUp">
               <div class="shs-tech-card">
-                <div class="shs-icon-wrapper"><span class="fa fa-sun-o shs-tech-icon"></span></div>
+                <div class="shs-icon-wrapper"><i class="fa fa-sun-o"></i></div>
                 <h4>Precyzyjny Dobór</h4>
-                <p>Analizujemy profil zużycia, aby instalacja pokrywała 100% potrzeb.</p>
+                <p>Analizujemy profil zużycia Twojego budynku, aby instalacja PV pokrywała realne zapotrzebowanie bez przewymiarowania.</p>
               </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 wow fadeInUp" data-wow-delay=".1s">
               <div class="shs-tech-card">
-                <div class="shs-icon-wrapper"><span class="fa fa-battery-full shs-tech-icon"></span></div>
+                <div class="shs-icon-wrapper"><i class="fa fa-battery-full"></i></div>
                 <h4>Magazyn Energii</h4>
-                <p>Gromadź darmowy prąd na noc i pochmurne dni.</p>
+                <p>Gromadź nadwyżki energii wyprodukowane w dzień, aby korzystać z darmowego prądu również po zmroku.</p>
               </div>
             </div>
           </div>
@@ -239,32 +180,35 @@
       </section>
 
       <footer class="section footer-classic">
-        <div class="footer-classic-main">
-          <div class="container">
-            <div class="row row-50">
-              <div class="col-lg-3">
-                <img src="images/logo-default-297x63.png" alt="SHS" width="148"/>
-                <p class="mt-3">Eksperci w dziedzinie nowoczesnych instalacji grzewczych.</p>
+        <div class="container">
+          <div class="row row-50 justify-content-between">
+            <div class="col-lg-4">
+              <img src="images/logo-default-297x63.png" alt="SHS" width="160" class="mb-3"/>
+              <p>Eksperci w dziedzinie nowoczesnych i energooszczędnych instalacji grzewczych oraz przemysłowych. Stawiamy na wydajność i bezpieczeństwo.</p>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <h4>Kontakt</h4>
+              <ul class="list-unstyled">
+                <li><a href="tel:516716042" class="big font-weight-bold">+48 516 716 042</a></li>
+                <li class="mt-2"><a href="mailto:biuro@shs.pl">biuro@shs.pl</a></li>
+                <li class="mt-2 text-white-50">ul. Przykładowa 123,<br>00-000 Miasto</li>
+              </ul>
+            </div>
+            <div class="col-sm-6 col-lg-3 text-lg-right">
+              <h4>Social Media</h4>
+              <div class="shs-social-row justify-content-lg-end">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-youtube-play"></a>
               </div>
-              <div class="col-lg-3">
-                <h4>Kontakt</h4>
-                <a href="tel:516716042" class="big d-block font-weight-bold">+48 516 716 042</a>
-                <a href="mailto:biuro@shs.pl">biuro@shs.pl</a>
-              </div>
-              <div class="col-lg-3">
-                <h4>Social Media</h4>
-                <div class="shs-social-row">
-                  <a class="fa fa-facebook" href="#"></a>
-                  <a class="fa fa-instagram" href="#"></a>
-                  <a class="fa fa-linkedin" href="#"></a>
-                </div>
-              </div>
+              <a href="contact-us.html" class="button button-sm button-white button-winona mt-4">Napisz do nas</a>
             </div>
           </div>
         </div>
         <div class="footer-classic-aside text-center">
           <div class="container">
-            <p class="rights"><span>&copy;&nbsp;</span>2026 SHS. Wszelkie prawa zastrzeżone.</p>
+            <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year">2026</span><span>&nbsp;</span>SHS. Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>
