@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
   <head>
-    <title>Home</title>
-    <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
+    <title>Home - Palniki Przemysłowe i Fotowoltaika</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
@@ -10,10 +10,101 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+    <style>
+      .ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} 
+      html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+      
+      /* Optymalizacja Menu i Logo */
+      .rd-navbar-brand img { max-width: 150px !important; height: auto; }
+      .rd-nav-link { font-weight: 700 !important; letter-spacing: 0.01em; }
+      .rd-nav-link.text-blue-custom { color: #007bff !important; }
+      .rd-nav-link.text-blue-custom:hover { color: #0056b3 !important; }
+      .rd-navbar-nav-wrap:hover { box-shadow: 0 0 10px rgba(0, 123, 255, 0.2); }
+
+      /* Sekcja Parallax Header */
+      .section.parallax-container-custom {
+        position: relative;
+        z-index: 0;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        background-image: url('https://static.wixstatic.com/media/e0bdea_72c269401a4b48e5984a03052f19f41c~mv2.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center 100px;
+        background-attachment: fixed;
+      }
+      .section.parallax-container-custom::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to right, rgba(30, 50, 75, 0.95) 0%, rgba(30, 50, 75, 0.6) 40%, rgba(30, 50, 75, 0.0) 100%);
+        z-index: 1;
+      }
+      .parallax-content-custom { position: relative; z-index: 2; width: 100%; }
+
+      /* Sekcja Custom Overlay */
+      .custom-parallax-overlay {
+        position: relative;
+        height: 500px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('https://static.wixstatic.com/media/e0bdea_376d134a250d46248406686f68d5e4ba~mv2.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        z-index: 1;
+      }
+      .custom-parallax-overlay::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 0;
+      }
+      .custom-parallax-overlay .container { position: relative; z-index: 2; }
+      .custom-parallax-overlay h3, .custom-parallax-overlay p, .custom-parallax-overlay .badge { color: #ffffff !important; }
+
+      /* Model 3D */
+      .model-wrapper {
+        width: 100%; height: 600px; border-radius: 8px; overflow: hidden;
+        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1); background-color: #ffffff;
+        border: 1px solid #e1e1e1; position: relative;
+      }
+      model-viewer { width: 100%; height: 100%; }
+
+      /* Technologia Cards */
+      .shs-tech-section { padding: 100px 0; background-color: #ffffff; }
+      .shs-tech-card {
+        background: #f8f9fa; padding: 40px 30px; border-radius: 12px; border: 1px solid #e9ecef;
+        text-align: center; transition: all 0.3s ease; height: 100%; position: relative;
+      }
+      .shs-tech-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 123, 255, 0.15); border-color: #007bff; }
+      .shs-icon-wrapper {
+        width: 80px; height: 80px; background: #fff; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center; margin: 0 auto 25px;
+        border: 2px solid #007bff; transition: 0.3s;
+      }
+      .shs-tech-card:hover .shs-icon-wrapper { background: #007bff; }
+      .shs-tech-card:hover .shs-tech-icon { color: #fff; }
+      .shs-tech-icon { font-size: 36px; color: #007bff; }
+      .tech-list li { margin-bottom: 12px; padding-left: 25px; position: relative; list-style: none; }
+      .tech-list li::before { content: '✓'; position: absolute; left: 0; color: #0d6efd; font-weight: bold; }
+
+      /* Footer */
+      .footer-classic { background-color: #007bff; color: #ffffff !important; }
+      .footer-classic-aside { background-color: #0056b3; padding: 20px 0; }
+      .shs-social-row { display: flex; gap: 15px; margin-top: 20px; align-items: center; }
+      .footer-classic a, .footer-classic p, .footer-classic h4 { color: #fff !important; }
+
+      @media (max-width: 1024px) {
+        .section.parallax-container-custom { background-attachment: scroll; background-position: center; }
+      }
+    </style>
   </head>
   <body>
-   
     <div class="preloader" id="loading">
       <div class="preloader-body">
         <div id="loading-center-object">
@@ -24,704 +115,161 @@
         </div>
       </div>
     </div>
+
     <div class="page">
-     <style>
-  /* Zmniejszenie logo do 100px */
-  .rd-navbar-brand img {
-    max-width: 150px !important;
-    height: auto;
-  }
+      <header class="section page-header">
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-main">
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <div class="rd-navbar-brand">
+                  <a class="brand" href="index.html"><img src="images/logo-default-297x63.png" alt="" width="150"/></a>
+                </div>
+              </div>
+              <div class="rd-navbar-nav-wrap">
+                <ul class="rd-navbar-nav">
+                  <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Home</a></li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">O nas</a></li>
+                  <li class="rd-nav-item">
+                    <a class="rd-nav-link" href="#">Usługi</a>
+                    <ul class="rd-menu rd-navbar-dropdown">
+                      <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="ogrzewanie-podlogowe.html">Ogrzewanie podłogowe</a></li>
+                      <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="pompy-ciepla.html">Pompy ciepła</a></li>
+                      <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="palniki.html">Palniki gazowe</a></li>
+                    </ul>
+                  </li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="wentylacja.html">Wentylacja</a></li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="fotowoltaika.html">Fotowoltaika</a></li>
+                  <li class="rd-nav-item"><a class="rd-nav-link text-blue-custom" href="raty.html">Kalkulator</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
 
-  /* Pogrubienie tekstu menu */
-  .rd-nav-link {
-    font-weight: 700 !important;
-    letter-spacing: 0.01em;
-  }
-
-  /* Ostatnia pozycja menu na NIEBIESKO */
-  .rd-nav-link.text-blue-custom {
-    color: #007bff !important;
-  }
-  
-  .rd-nav-link.text-blue-custom:hover {
-    color: #0056b3 !important;
-  }
-
-
-    
-    /* Efekt po najechaniu na obszar menu */
-    .rd-navbar-nav-wrap:hover {
-      box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-    }
-    
-    .rd-navbar-nav {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
-</style>
-
-<header class="section page-header">
-  <div class="rd-navbar-wrap">
-    <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="10px" data-xl-stick-up-offset="10px" data-xxl-stick-up-offset="10px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
-      <div class="rd-navbar-main">
-        <div class="rd-navbar-panel">
-          <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-          <div class="rd-navbar-brand">
-            <a class="brand" href="index.html"><img src="images/logo-default-297x63.png" alt="" width="100" height="21"/></a>
+      <section class="section parallax-container-custom context-dark">
+        <div class="parallax-content-custom">
+          <div class="container">
+            <div class="block-custom">
+              <h2 class="font-weight-extra-black wow clipInLeft">Palniki Przemysłowe Dużej oraz Małej Mocy</h2>
+              <h4 class="wow clipInLeft" data-wow-delay=".1s">Zaawansowane rozwiązania w technologii spalania dla przemysłu.</h4>
+              <div class="group-xl group-middle">
+                <a class="button button-lg button-white button-winona wow clipInLeft" href="about-us.html">O firmie</a>
+                <a class="button button-lg button-primary button-winona wow clipInLeft" href="contact-us.html">Kontakt</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="rd-navbar-nav-wrap">
-          <ul class="rd-navbar-nav">
-            <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Home</a></li>
-            <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">O nas</a></li>
-            
-            <li class="rd-nav-item"><a class="rd-nav-link" href="#">Usługi</a>
-              <ul class="rd-menu rd-navbar-dropdown">
-                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="ogrzewanie-podlogowe.html">Ogrzewanie podłogowe i ścienne</a></li>
-                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="dotacje.html">Odnawialne źródła energii z dotacją</a></li>
-                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="ogrzewanie-grzejnikowe.html">Ogrzewanie grzejnikowe Smart</a></li>
-                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="pompy-ciepla.html">Pompy ciepła</a></li>
-                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="apengroup.html">Nagrzewnice i promienniki</a></li>
-                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="palniki.html">Palniki gazowe</a></li>
+      </section>
+
+      <section class="section section-lg">
+        <div class="container">
+          <div class="row row-50 align-items-center">
+            <div class="col-lg-5 wow fadeInRightSmall">
+              <div class="badge">Serwis Przemysłowy</div>
+              <h3>Obsługa Palników Wszystkich Typów</h3>
+              <p class="big">Obsługujemy palniki gazowe, olejowe oraz peletowe. Specjalizujemy się w regulacji palników w dopalaczach RTO dla redukcji LZO.</p>
+            </div>
+            <div class="col-lg-7 text-center wow fadeInLeftSmall">
+              <img src="https://static.wixstatic.com/media/e0bdea_eab65111232a4a21ac2e98844371cfdf~mv2.webp" alt="Serwis" style="max-width:100%; border-radius:8px;">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section custom-parallax-overlay">
+        <div class="container text-center">
+          <div class="badge">Serwis SHS</div>
+          <h3>Palniki Gazowe - Gwarancja Oszczędności</h3>
+          <p class="big">Precyzyjna regulacja to niższe zużycie gazu i bezpieczeństwo.</p>
+        </div>
+      </section>
+
+      <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row row-50 align-items-center">
+            <div class="col-lg-6 wow clipInLeft">
+              <div class="model-wrapper">
+                <model-viewer 
+                  src="https://static.wixstatic.com/3d/e0bdea_5faa07866e1a4a0ea3642b82d8a1ecd6.glb" 
+                  alt="Model 3D Palnika" camera-controls auto-rotate shadow-intensity="1">
+                </model-viewer>
+              </div>
+            </div>
+            <div class="col-lg-6 wow clipInRight">
+              <div class="badge">Technologia SHS</div>
+              <h3>Zasada Działania i Ekonomia</h3>
+              <ul class="tech-list big">
+                <li><strong>Idealna mieszanka (Lambda):</strong> Optymalizacja stosunku powietrza do gazu.</li>
+                <li><strong>Czystość wymiennika:</strong> Zapobieganie osadzaniu sadzy.</li>
+                <li><strong>Żywotność:</strong> Prewencyjna kontrola podzespołów.</li>
               </ul>
-            </li>
-
-            <li class="rd-nav-item"><a class="rd-nav-link" href="wentylacja.html">Wentylacja mechaniczna</a></li>
-            <li class="rd-nav-item"><a class="rd-nav-link" href="fotowoltaika.html">Fotowoltaika</a></li>
-            <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Kontakt</a></li>
-            <li class="rd-nav-item"><a class="rd-nav-link text-blue-custom" href="raty.html">Kalkulator kredytowy</a></li>
-          </ul>
-        </div>
-        <div class="rd-navbar-element">
-         
-        </div>
-        <div class="rd-navbar-dummy"></div>
-      </div>
-    </nav>
-  </div>
-</header>
-<style>
-  /* 1. Upewniamy się, że kontener jest bazą do pozycjonowania */
-  .section.parallax-container {
-    position: relative;
-    z-index: 0;
-    max-height: 80vh;
-    
-    /* --- WAŻNE: ZMIEŃ TEN URL NA ZDJĘCIE PALNIKÓW PRZEMYSŁOWYCH --- */
-    /* Obecne zdjęcie przedstawia grzejniki */
-    background-image: url('https://static.wixstatic.com/media/e0bdea_72c269401a4b48e5984a03052f19f41c~mv2.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    
-    /* KLUCZOWA ZMIANA: Przesunięcie obrazu o 130px w dół */
-    background-position: center 100px;
-    
-    /* Symulacja parallax w CSS - obraz stoi przy przewijaniu */
-    background-attachment: fixed;
-  }
-
-  /* 2. Tworzymy nakładkę (overlay) z płynnym zanikaniem */
-  .section.parallax-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    /* GRADIENT: Lewa ciemna, prawa przezroczysta */
-    background: linear-gradient(
-      to right, 
-      rgba(30, 50, 75, 0.95) 0%,   
-      rgba(30, 50, 75, 0.6) 40%,   
-      rgba(30, 50, 75, 0.0) 100%   
-    );
-    
-    z-index: 1; 
-    pointer-events: none; 
-  }
-
-  /* 3. Upewniamy się, że treść jest na wierzchu */
-  .parallax-content {
-    position: relative;
-    z-index: 2; 
-  }
-
-  /* Wyłączenie fixed na urządzeniach mobilnych dla lepszej wydajności */
-  @media (max-width: 1024px) {
-    .section.parallax-container {
-      background-attachment: scroll;
-      background-position: center center;
-    }
-  }
-</style>
-
-<section class="section parallax-container context-dark">
-  <div class="parallax-content">
-    <div class="page-header-2-inner">
-      <div class="container">
-        <div class="block-custom">
-          <h2 class="font-weight-extra-black wow clipInLeft" data-wow-delay=".1s">
-            Palniki Przemysłowe Dużej oraz Małej Mocy
-          </h2>
-          <h4 class="text-default wow clipInLeft" data-wow-delay=".1s">
-            Oferujemy zaawansowane rozwiązania w technologii spalania dla przemysłu. Zapewniamy wysoką wydajność energetyczną, niezawodność oraz precyzyjną kontrolę procesów dla szerokiego zakresu zastosowań i mocy.
-          </h4>
-          <div class="group-xl group-middle">
-            <div>
-              <a class="button button-lg button-white button-shadow button-winona wow clipInLeft" href="about-us.html" data-wow-delay=".2s">O firmie</a>
-            </div>
-            <div>
-              <a class="button button-lg button-primary button-shadow button-winona wow clipInLeft" href="contact-us.html" data-wow-delay=".2s">Skontaktuj się</a>
+              <a class="button button-primary button-winona mt-4" href="contact-us.html">Zamów audyt</a>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-
-<section class="section section-lg">
-  <div class="container">
-    <div class="row row-50">
-      <div class="col-sm-10 col-lg-5 wow fadeInRightSmall">
-        <div class="badge">Serwis Przemysłowy</div>
-        <h3>Obsługa Palników Wszystkich Typów</h3>
-        <p class="big inset-3" style="letter-spacing: .025em">
-          Specjalizujemy się w technice grzewczej dla przemysłu. Obsługujemy każdy rodzaj palnika: gazowe, olejowe oraz peletowe, niezależnie od ich producenta. Realizujemy serwisy zarówno dla jednostek małej mocy, jak i rozbudowanych instalacji dużej mocy.
-        </p>
-        
-        <p class="font-weight-bold" style="color: #000; margin-top: 15px;">
-          Nasza flagowa usługa:
-        </p>
-        <p style="margin-top: 5px;">
-          Specjalistyczna regulacja palników w dopalaczach termicznych RTO (Regenerative Thermal Oxidizers), zapewniająca optymalną redukcję LZO i zgodność z normami emisji.
-        </p>
-
-       
-        
-      </div>
-      <div class="col-sm-10 col-lg-7 wow fadeInLeftSmall text-center">
-        <img class="img-custom" src="https://static.wixstatic.com/media/e0bdea_eab65111232a4a21ac2e98844371cfdf~mv2.webp" alt="Serwis palników przemysłowych i dopalaczy RTO" style="margin-top: -50px;"/>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section section-xl bg-accent">
-  <div class="container">
-    <div class="row row-50 justify-content-center flex-lg-row-reverse align-items-center justify-content-lg-between">
-      <div class="col-sm-10 col-lg-5 wow fadeInRightSmall">
-        <div class="badge">Specjalizacja Serwisowa</div>
-        <h3>Serwis Nagrzewnic Gazowych</h3>
-        <p class="big inset-2">
-          Oferujemy profesjonalną obsługę techniczną przemysłowych systemów nadmuchowych. Posiadamy wieloletnie doświadczenie oraz zaplecze techniczne niezbędne do serwisowania palników w nagrzewnicach powietrza, zapewniając ich długą i bezawaryjną eksploatację.
-        </p>
-        <ul class="list-marked">
-          <li><strong>Winterwarm i Apengroup:</strong> Dedykowany serwis i naprawa urządzeń oraz palników tych producentów.</li>
-          <li><strong>Precyzyjna regulacja:</strong> Optymalizacja procesu spalania w celu zmniejszenia zużycia gazu.</li>
-          <li><strong>Kompleksowe przeglądy:</strong> Czyszczenie, analiza spalin oraz kontrola zabezpieczeń nagrzewnic.</li>
-        </ul>
-        
-      </div>
-      <div class="col-sm-10 col-lg-6 wow fadeInLeftSmall">
-        <div class="thumbnail-classy">
-          <img src="https://static.wixstatic.com/media/e0bdea_7e5fe2b599374038bf316d41f5f6f8b2~mv2.jpg" alt="Serwis nagrzewnic Winterwarm i Apengroup" style="width: 100%; height: auto; object-fit: cover; border-radius: 6px;">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-lg">
-  <div class="container">
-    <div class="row row-50">
-      <div class="col-sm-10 col-lg-6 wow fadeInRightSmall">
-        <div class="badge">Profesjonalny Serwis</div>
-        <h3>Serwis Kotłów Gazowych i Regulacja Palników</h3>
-        <p class="big inset-3" style="letter-spacing: .025em">
-          Zadbaj o bezpieczeństwo i wydajność swojej kotłowni. Oferujemy kompleksowe przeglądy kotłów gazowych, których kluczowym elementem jest precyzyjna regulacja palnika. Nasze działania przekładają się na:
-        </p>
-        <ul class="list-marked">
-          <li>Optymalizację procesu spalania i niższe zużycie gazu</li>
-          <li>Bezpieczeństwo dzięki analizie spalin i kontroli szczelności</li>
-          <li>Wydłużenie żywotności urządzenia poprzez fachową konserwację</li>
-        </ul>
-        <a class="button button-primary button-shadow button-winona font-weight-sbold" href="contact-us.html">Zamów serwis</a>
-      </div>
-      <div class="col-sm-10 col-lg-6 wow fadeInLeftSmall text-center">
-        <img class="img-custom" src="https://static.wixstatic.com/media/e0bdea_59c92436d7684ebca29085869e6de26a~mv2.png" alt="Serwis kotła gazowego i regulacja palnika" width="400" height="450" style="max-width: 600px; width: 100%; height: auto; border-radius: 6px;"/>
-      </div>
-    </div>
-  </div>
-</section>
-     <style>
-  .custom-parallax-overlay {
-    position: relative;
-    /* Ustawienie stałej wysokości sekcji */
-    height: 500px;
-    width: 100%;
-    
-    /* Centrowanie zawartości w pionie i poziomie */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* USTAWIENIA TŁA */
-    background-image: url('https://static.wixstatic.com/media/e0bdea_376d134a250d46248406686f68d5e4ba~mv2.png');
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #1a1a1a;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  .custom-parallax-overlay::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 0;
-  }
-
-  .custom-parallax-overlay .container {
-    position: relative;
-    z-index: 2;
-  }
-
-  /* Kolorystyka tekstów */
-  .custom-parallax-overlay h3, 
-  .custom-parallax-overlay h3 span,
-  .custom-parallax-overlay h3 .text-accent,
-  .custom-parallax-overlay p,
-  .custom-parallax-overlay .badge {
-    color: #ffffff !important;
-  }
-
-  .custom-parallax-overlay .badge {
-    border-color: #ffffff;
-    background-color: transparent;
-    display: inline-block;
-    margin-bottom: 20px;
-  }
-
-  /* Responsywność dla urządzeń mobilnych */
-  @media (max-width: 768px) {
-    .custom-parallax-overlay {
-      height: auto;
-      padding: 80px 0;
-    }
-  }
-</style>
-
-<section class="section custom-parallax-overlay" id="about-us">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7 text-center">
-        <div class="block-5 wow clipInLeft">
-          <div class="badge wow clipInLeft">Serwis Palników SHS</div>
-          <h3 class="wow clipInLeft" data-wow-delay=".1s">
-            <span>Palniki Gazowe</span><br>
-            <span class="text-accent">Gwarancja Oszczędności</span>
-          </h3>
-          <p class="big wow clipInLeft inset-3" data-wow-delay=".2s">
-            Zoptymalizuj pracę swojej instalacji dzięki profesjonalnemu serwisowi SHS. Precyzyjna regulacja palnika to nie tylko bezpieczeństwo, ale przede wszystkim niższe zużycie gazu. Inwestycja w nasz serwis zwraca się błyskawicznie dzięki znacznemu obniżeniu kosztów eksploatacji Twojej kotłowni.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-
-<style>
-  .model-wrapper {
-    width: 100%;
-    height: 600px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
-    background-color: #ffffff;
-    border: 1px solid #e1e1e1;
-    position: relative;
-  }
-
-  model-viewer {
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    --poster-color: #ffffff;
-  }
-
-  .tech-list li {
-    margin-bottom: 12px;
-    position: relative;
-    padding-left: 25px;
-  }
-  .tech-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #0d6efd;
-    font-weight: bold;
-  }
-</style>
-
-<section class="section section-lg bg-default">
-  <div class="container">
-    <div class="row row-50 align-items-center">
-      
-      <div class="col-lg-6 wow clipInLeft">
-        <div class="model-wrapper">
-          <model-viewer 
-            src="https://static.wixstatic.com/3d/e0bdea_5faa07866e1a4a0ea3642b82d8a1ecd6.glb" 
-            alt="Model 3D Palnika Przemysłowego"
-            camera-controls 
-            auto-rotate
-            shadow-intensity="1"
-            
-            camera-orbit="45deg 55deg <style>
-  /* Stylizacja sekcji technologicznej */
-  .shs-tech-section {
-    padding: 100px 0;
-    background-color: #ffffff;
-  }
-
-  .shs-tech-intro {
-    max-width: 800px;
-    margin: 0 auto 60px auto;
-  }
-
-  .shs-tech-intro h2 {
-    font-weight: 900;
-    color: #1a1a1a;
-    margin-bottom: 25px;
-  }
-
-  /* Wyróżnienie kluczowej statystyki w tekście */
-  .shs-stat-highlight {
-    color: #007bff;
-    font-weight: 800;
-    font-size: 1.1em;
-  }
-
-  /* Stylizacja Kafli (Kart) */
-  .shs-tech-card {
-    background: #f8f9fa;
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #e9ecef;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Efekt hover - uniesienie i cień */
-  .shs-tech-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.15);
-    background: #ffffff;
-    border-color: #007bff;
-  }
-
-  /* Ikony w kółkach */
-  .shs-icon-wrapper {
-    width: 80px;
-    height: 80px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 25px auto;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border: 2px solid #007bff;
-    transition: background 0.3s;
-  }
-
-  .shs-tech-card:hover .shs-icon-wrapper {
-    background-color: #007bff;
-  }
-
-  /* Ustawienia samej ikony (rozmiar czcionki) */
-  .shs-tech-icon {
-    font-size: 36px; /* Lekka korekta rozmiaru dla FontAwesome */
-    color: #007bff;
-    transition: color 0.3s;
-  }
-
-  .shs-tech-card:hover .shs-tech-icon {
-    color: #ffffff;
-  }
-
-  .shs-card-title {
-    font-weight: 700;
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #1a1a1a;
-  }
-
-  .shs-card-text {
-    color: #555;
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  /* Pasek dekoracyjny na dole karty */
-  .shs-tech-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: #007bff;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
-
-  .shs-tech-card:hover::after {
-    transform: scaleX(1);
-  }
-</style>
-
-<section id="technologia" class="section shs-tech-section">
-  <div class="container">
-    
-    <div class="shs-tech-intro text-center wow fadeInUp">
-      <div class="badge mb-3">Fotowoltaika Hybrydowa SHS</div>
-      <h2>Autokonsumpcja to klucz do oszczędności.</h2>
-      <p class="big">
-        Przy obecnych zasadach rozliczeń (net-billing), oddawanie energii do sieci jest nieopłacalne. Naszym priorytetem jest zaprojektowanie instalacji tak, aby pokrywała <span class="shs-stat-highlight">100% zapotrzebowania energetycznego</span> budynku, minimalizując konieczność zakupu drogiego prądu.
-      </p>
-      <p class="mt-3">
-        Samo słońce jednak nie wystarczy. Aby system był efektywny przez całą dobę, niezbędne jest <strong>magazynowanie nadwyżek</strong> wyprodukowanych w ciągu dnia, aby wykorzystać je wieczorem lub w momentach gorszej pogody.
-      </p>
-    </div>
-
-    <div class="row row-30 justify-content-center">
-      
-      <div class="col-md-6 col-lg-5 wow fadeInLeft" data-wow-delay=".1s">
-        <div class="shs-tech-card">
-          <div class="shs-icon-wrapper">
-            <span class="fa fa-sun-o shs-tech-icon"></span>
+      <section class="shs-tech-section">
+        <div class="container">
+          <div class="text-center mb-5">
+            <div class="badge">Fotowoltaika Hybrydowa</div>
+            <h2>Autokonsumpcja to klucz</h2>
           </div>
-          <h4 class="shs-card-title">Precyzyjny Dobór Instalacji</h4>
-          <p class="shs-card-text">
-            Nie montujemy "na oko". Analizujemy profil zużycia Twojego domu, aby moc instalacji PV była idealnie dopasowana do realnego zapotrzebowania. Tylko pełne pokrycie zapotrzebowania gwarantuje zwrot z inwestycji i niezależność od podwyżek cen prądu.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-5 wow fadeInRight" data-wow-delay=".2s">
-        <div class="shs-tech-card">
-          <div class="shs-icon-wrapper">
-            <span class="fa fa-battery-full shs-tech-icon"></span>
-          </div>
-          <h4 class="shs-card-title">Magazyn Energii</h4>
-          <p class="shs-card-text">
-            Niezbędny element nowoczesnej instalacji. Magazyn energii gromadzi darmowy prąd ze słońca, pozwalając Ci korzystać z własnej energii w nocy oraz w dni pochmurne i niesłoneczne. To Twoja prywatna elektrownia, która działa niezależnie od sieci energetycznej.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>50%"
-            min-camera-orbit="auto auto 5%"
-            max-camera-orbit="auto auto 500%"
-            field-of-view="30deg"
-
-            style="background-color: white;">
-          </model-viewer>
-          
-          <div style="position: absolute; bottom: 10px; left: 0; width: 100%; text-align: center; color: #999; font-size: 12px; pointer-events: none;">
-             <i class="fa fa-mouse-pointer"></i> Obracaj | <i class="fa fa-search"></i> Przybliżaj
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-6 wow clipInRight">
-        <div class="badge">Technologia SHS</div>
-        <h3>Zasada Działania i Ekonomia Spalania</h3>
-        
-        <p class="big inset-2">
-          Palnik przemysłowy to serce układu grzewczego. Jego zadaniem jest precyzyjne mieszanie paliwa z powietrzem w celu uzyskania kontrolowanej reakcji egzotermicznej. Nowoczesne palniki modulowane, które instalujemy, dostosowują moc płomienia do aktualnego zapotrzebowania w czasie rzeczywistym.
-        </p>
-
-        <h5 class="mt-4">Zastosowanie przemysłowe:</h5>
-        <p>
-          Nasze rozwiązania zasilają kotły parowe, suszarnie bębnowe, piece lakiernicze oraz dopalacze termiczne RTO. Wszędzie tam, gdzie wymagana jest stabilność temperatury procesu.
-        </p>
-
-        <h5 class="mt-4" style="color: #2c3e50;">Dlaczego serwis obniża koszty?</h5>
-        <ul class="list-unstyled tech-list big">
-          <li>
-            <strong>Idealna mieszanka (Lambda):</strong> Regularna analiza spalin pozwala ustawić idealny stosunek powietrza do gazu. Zbyt duża ilość powietrza chłodzi komorę, zbyt mała powoduje stratę paliwa.
-          </li>
-          <li>
-            <strong>Czystość wymiennika:</strong> Źle wyregulowany palnik odkłada sadzę. Warstwa sadzy o grubości 1mm może obniżyć sprawność kotła nawet o 10%.
-          </li>
-          <li>
-            <strong>Żywotność podzespołów:</strong> Wykrycie wibracji wentylatora czy zużycia elektrod zapłonowych zapobiega kosztownym awariom zatrzymującym produkcję.
-          </li>
-        </ul>
-        
-        <div class="mt-4">
-          <a class="button button-primary button-shadow button-winona" href="service.html">Zamów audyt spalania</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-  <style>
-  /* Personalizacja kolorystyki stopki */
-  .footer-classic {
-    background-color: #007bff;
-    color: #ffffff !important;
-  }
-
-  .footer-classic-main {
-    padding: 60px 0;
-  }
-
-  .footer-classic h4, 
-  .footer-classic p, 
-  .footer-classic a, 
-  .footer-classic span,
-  .footer-classic li {
-    color: #ffffff !important;
-  }
-
-  .footer-classic a:hover {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-
-  .footer-classic-aside {
-    background-color: #0056b3;
-    padding: 20px 0;
-  }
-
-  /* Gwarancja idealnego wyśrodkowania ikon w linii */
-  .shs-social-row {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important; /* Wyśrodkowanie w pionie */
-    justify-content: flex-start;
-    gap: 15px;
-    margin-top: 20px;
-    padding-top: 5px; /* Delikatna korekta optyczna */
-  }
-
-  .footer-classic .link-social-1 {
-    font-size: 18px;
-    color: #ffffff !important;
-    display: inline-flex !important; /* Flex wewnątrz ikony dla precyzji */
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    line-height: 1 !important;
-    transition: opacity 0.3s ease;
-  }
-
-  .footer-classic .link-social-1:hover {
-    opacity: 0.7;
-  }
-
-  .footer-classic-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  /* Usunięcie marginesów z ostatniego elementu kontaktu */
-  .footer-contact-info div {
-    margin-bottom: 5px;
-  }
-</style>
-
-<footer class="section footer-classic">
-  <div class="footer-classic-main">
-    <div class="container">
-      <div class="row row-50 justify-content-lg-between">
-        <div class="col-sm-7 col-lg-3 col-xl-2">
-          <a class="brand" href="index.html">
-            <img src="images/logo-default-297x63.png" alt="SHS Logo" width="148" height="31"/>
-          </a>
-          <p class="mt-3">
-            <span style="max-width: 250px;">Eksperci w dziedzinie nowoczesnych instalacji grzewczych SHS. Bezpieczeństwo i wydajność.</span>
-          </p>
-          <a class="button button-sm button-default-outline button-winona" href="contact.html">Zgłoś serwis</a>
-        </div>
-
-        <div class="col-sm-5 col-lg-3 col-xl-2">
-          <h4 class="footer-classic-title">O Firmie</h4>
-          <ul class="list footer-classic-list">
-            <li><a href="about-us.html">O nas</a></li>
-            <li><a href="#">Nasze realizacje</a></li>
-            <li><a href="contact.html">Kontakt</a></li>
-          </ul>
-        </div>
-
-        <div class="col-sm-7 col-lg-5 col-xl-3">
-          <h4 class="footer-classic-title">Oferta</h4>
-          <ul class="list footer-classic-list footer-classic-list_2-cols">
-            <li><a href="#">Systemy SHS</a></li>
-            <li><a href="#">Dotacje</a></li>
-            <li><a href="#">Raty</a></li>
-            <li><a href="#">Serwis 24/7</a></li>
-            <li><a href="#">FAQ</a></li>
-          </ul>
-        </div>
-
-        <div class="col-sm-5 col-lg-9 col-xl-3">
-          <h4 class="footer-classic-title">Kontakt</h4>
-          <div class="footer-contact-info">
-            <div>
-              <a href="mailto:biuro@shs.pl">biuro@shs.pl</a>
+          <div class="row row-30 justify-content-center">
+            <div class="col-md-5">
+              <div class="shs-tech-card">
+                <div class="shs-icon-wrapper"><span class="fa fa-sun-o shs-tech-icon"></span></div>
+                <h4>Precyzyjny Dobór</h4>
+                <p>Analizujemy profil zużycia, aby instalacja pokrywała 100% potrzeb.</p>
+              </div>
             </div>
-            <div>
-              <a class="big" href="tel:516716042" style="font-weight: bold; font-size: 1.2em;">+48 516 716 042</a>
-            </div>
-            <div class="shs-social-row">
-              <a class="link link-social-1 mdi mdi-facebook" href="#"></a>
-              <a class="link link-social-1 mdi mdi-instagram" href="#"></a>
-              <a class="link link-social-1 mdi mdi-linkedin" href="#"></a>
-              <a class="link link-social-1 mdi mdi-youtube-play" href="#"></a>
-              <a class="link link-social-1 mdi mdi-music-note" href="#"></a>
+            <div class="col-md-5">
+              <div class="shs-tech-card">
+                <div class="shs-icon-wrapper"><span class="fa fa-battery-full shs-tech-icon"></span></div>
+                <h4>Magazyn Energii</h4>
+                <p>Gromadź darmowy prąd na noc i pochmurne dni.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <footer class="section footer-classic">
+        <div class="footer-classic-main">
+          <div class="container">
+            <div class="row row-50">
+              <div class="col-lg-3">
+                <img src="images/logo-default-297x63.png" alt="SHS" width="148"/>
+                <p class="mt-3">Eksperci w dziedzinie nowoczesnych instalacji grzewczych.</p>
+              </div>
+              <div class="col-lg-3">
+                <h4>Kontakt</h4>
+                <a href="tel:516716042" class="big d-block font-weight-bold">+48 516 716 042</a>
+                <a href="mailto:biuro@shs.pl">biuro@shs.pl</a>
+              </div>
+              <div class="col-lg-3">
+                <h4>Social Media</h4>
+                <div class="shs-social-row">
+                  <a class="fa fa-facebook" href="#"></a>
+                  <a class="fa fa-instagram" href="#"></a>
+                  <a class="fa fa-linkedin" href="#"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-classic-aside text-center">
+          <div class="container">
+            <p class="rights"><span>&copy;&nbsp;</span>2026 SHS. Wszelkie prawa zastrzeżone.</p>
+          </div>
+        </div>
+      </footer>
     </div>
-  </div>
-  
-  <div class="footer-classic-aside">
-    <div class="container">
-      <p class="rights">
-        <span>&copy;&nbsp;</span><span class="copyright-year">2026</span><span>&nbsp;</span><span>SHS</span>. Wszelkie prawa zastrzeżone.
-      </p>
-    </div>
-  </div>
-</footer>
-    </div>
-    <div class="snackbars" id="form-output-global"></div>
+
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
   </body>
