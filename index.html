@@ -102,35 +102,25 @@
   </div>
 </header>
 <style>
-  /* Główny kontener sekcji */
+  /* 1. Upewniamy się, że kontener jest bazą do pozycjonowania */
   .section.parallax-container {
     position: relative;
     z-index: 0;
     
-    /* WYSOKOŚĆ: 85% wysokości okna (zgodnie z życzeniem) */
-    min-height: 85vh;
-    
-    /* USUWANIE ODSTĘPÓW: Gwarancja, że sekcja styka się z menu */
-    margin-top: 0 !important;
-    padding-top: 0; 
-    
-    /* CENTROWANIE TREŚCI: Flexbox wyśrodkuje tekst idealnie na środku obrazu */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* TŁO I PARALLAX */
+    /* PRZENIESIENIE OBRAZU DO CSS DLA KONTROLI POZYCJI */
     background-image: url('https://static.wixstatic.com/media/e0bdea_ce9955425dfe4c0a964de64ef3912bb4~mv2.png');
     background-size: cover;
     background-repeat: no-repeat;
     
-    /* KLUCZOWE DLA PARALLAX: Tło jest "przybite" do okna przeglądarki */
+    /* KLUCZOWA ZMIANA: Przesunięcie obrazu o 130px w dół */
+    /* Pierwsza wartość (center) to poziom, druga (130px) to pion */
+    background-position: center 100px;
+    
+    /* Opcjonalnie: Symulacja parallax w CSS (możesz usunąć, jeśli wolisz statyczny obraz) */
     background-attachment: fixed;
-    /* Pozycja idealnie na środku - zapobiega ucięciu */
-    background-position: center center;
   }
 
-  /* Nakładka przyciemniająca (Overlay) */
+  /* 2. Tworzymy nakładkę (overlay) z płynnym zanikaniem */
   .section.parallax-container::before {
     content: '';
     position: absolute;
@@ -139,33 +129,25 @@
     width: 100%;
     height: 100%;
     
-    /* Gradient: Ciemny granat z lewej -> Przeźroczysty z prawej */
+    /* GRADIENT Z POPRZEDNIEGO KROKU:
+       - Lewa: Ciemny (0.95)
+       - Prawa: Przezroczysty (0.0)
+    */
     background: linear-gradient(
       to right, 
       rgba(30, 50, 75, 0.95) 0%,   
-      rgba(30, 50, 75, 0.7) 40%,   
-      rgba(30, 50, 75, 0.1) 100%   
+      rgba(30, 50, 75, 0.6) 40%,   
+      rgba(30, 50, 75, 0.0) 100%   
     );
     
     z-index: 1; 
     pointer-events: none; 
   }
 
-  /* Treść na wierzchu */
+  /* 3. Upewniamy się, że treść jest na wierzchu */
   .parallax-content {
     position: relative;
     z-index: 2; 
-    width: 100%;
-    padding: 20px; /* Margines bezpieczeństwa dla treści na mobilkach */
-  }
-
-  /* POPRAWKA DLA URZĄDZEŃ MOBILNYCH (iOS/Android często blokują 'fixed') */
-  @media (max-width: 768px) {
-    .section.parallax-container {
-      background-attachment: scroll; /* Na telefonie wyłączamy parallax dla płynności */
-      background-position: center center;
-      min-height: 600px; /* Minimalna wysokość na telefonie */
-    }
   }
 </style>
 
