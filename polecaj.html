@@ -111,11 +111,9 @@ margin-bottom: 10px;
     /* WYSOKOŚĆ: 85% wysokości okna */
     min-height: 85vh;
     
-    /* Reset marginesów */
-    margin-top: 0px !important;
-    
-    /* POPRAWKA: Dodajemy duży padding od góry, aby menu nie zasłaniało treści */
-    padding-top: 160px;
+    /* ZMIANA: Margin-top zamiast 0, aby obniżyć całą sekcję pod menu */
+    margin-top: 150px !important;
+    padding-top: 50px;
     
     /* Centrowanie treści */
     display: flex;
@@ -164,8 +162,8 @@ margin-bottom: 10px;
     .section.parallax-container {
       background-attachment: scroll !important;
       min-height: 600px;
-      /* Na mobilkach menu jest mniejsze, więc padding też może być mniejszy */
-      padding-top: 100px;
+      /* Na mobilkach menu jest mniejsze, dostosowujemy margines */
+      margin-top: 100px !important;
     }
   }
 </style>
