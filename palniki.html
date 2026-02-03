@@ -563,6 +563,127 @@
 </style>
 
 
+<style>
+  /* Stylizacja sekcji technologicznej */
+  .shs-tech-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+  }
+
+  .shs-tech-intro {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+  }
+
+  .shs-tech-intro h2 {
+    font-weight: 900;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+  }
+
+  /* Wyróżnienie kluczowej statystyki w tekście */
+  .shs-stat-highlight {
+    color: #007bff;
+    font-weight: 800;
+    font-size: 1.1em;
+  }
+
+  /* Stylizacja Kafli (Kart) */
+  .shs-tech-card {
+    background: #f8f9fa;
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Efekt hover - uniesienie i cień */
+  .shs-tech-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.15);
+    background: #ffffff;
+    border-color: #007bff;
+  }
+
+  /* Ikony w kółkach */
+  .shs-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 2px solid #007bff;
+    transition: background 0.3s;
+  }
+
+  .shs-tech-card:hover .shs-icon-wrapper {
+    background-color: #007bff;
+  }
+
+  /* Ustawienia samej ikony (rozmiar czcionki) */
+  .shs-tech-icon {
+    font-size: 36px;
+    color: #007bff;
+    transition: color 0.3s;
+  }
+
+  .shs-tech-card:hover .shs-tech-icon {
+    color: #ffffff;
+  }
+
+  .shs-card-title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+  }
+
+  .shs-card-text {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Pasek dekoracyjny na dole karty */
+  .shs-tech-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #007bff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .shs-tech-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Stylizacja Modelu 3D - ZMNIEJSZONA */
+  .model-wrapper {
+    position: relative;
+    width: 70%;       /* Zmniejszono ze 100% */
+    height: 280px;    /* Zmniejszono z 400px (ok. 30% mniej) */
+    margin: 0 auto;   /* Wyśrodkowanie mniejszego modelu */
+  }
+
+  model-viewer {
+    width: 100%;
+    height: 100%;
+    --poster-color: transparent;
+  }
+</style>
+
 <section class="section section-lg bg-default">
   <div class="container">
     <div class="row row-50 align-items-center">
@@ -575,7 +696,7 @@
             camera-controls 
             auto-rotate
             shadow-intensity="1"
-            camera-orbit="45deg 55deg 20%"
+            camera-orbit="45deg 55deg 105%"
             min-camera-orbit="auto auto 5%"
             max-camera-orbit="auto auto 500%"
             field-of-view="30deg"
