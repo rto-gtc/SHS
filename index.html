@@ -102,41 +102,42 @@
   </div>
 </header>
 <style>
-  /* 1. Upewniamy się, że kontener jest bazą do pozycjonowania */
+  /* 1. Kontener sekcji */
   .section.parallax-container {
     position: relative;
     z-index: 0;
+    overflow: hidden; /* Zapewnia, że nic nie wystaje */
     
-    /* PRZENIESIENIE OBRAZU DO CSS DLA KONTROLI POZYCJI */
+    /* ZMIANA: Używamy background-size: cover, aby obraz zawsze wypełniał sekcję.
+       Zamiast sztywnego 100px, używamy procentowego pozycjonowania lub 
+       zostawiamy center, aby uniknąć dziur przy background-attachment: fixed. */
     background-image: url('https://static.wixstatic.com/media/e0bdea_ce9955425dfe4c0a964de64ef3912bb4~mv2.png');
     background-size: cover;
     background-repeat: no-repeat;
-    
-    /* KLUCZOWA ZMIANA: Przesunięcie obrazu o 130px w dół */
-    /* Pierwsza wartość (center) to poziom, druga (130px) to pion */
-    background-position: center 100px;
-    
-    /* Opcjonalnie: Symulacja parallax w CSS (możesz usunąć, jeśli wolisz statyczny obraz) */
     background-attachment: fixed;
+    background-position: center center; 
+    
+    /* Jeśli musisz obniżyć tło, bezpieczniej jest manipulować paddingiem sekcji 
+       lub użyć background-position: center 20%, co jest bardziej responsywne */
+    min-height: 500px; /* Przykładowa wysokość, by parallax był widoczny */
   }
 
-  /* 2. Tworzymy nakładkę (overlay) z płynnym zanikaniem */
+  /* 2. Nakładka (overlay) - Rozszerzona, aby pokryć całą przestrzeń */
   .section.parallax-container::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
     
-    /* GRADIENT Z POPRZEDNIEGO KROKU:
-       - Lewa: Ciemny (0.95)
-       - Prawa: Przezroczysty (0.0)
-    */
+    /* GRADIENT dopasowany do tła strony, by niwelować "dziury" na krawędziach */
     background: linear-gradient(
       to right, 
       rgba(30, 50, 75, 0.95) 0%,   
-      rgba(30, 50, 75, 0.6) 40%,   
+      rgba(30, 50, 75, 0.7) 40%,   
       rgba(30, 50, 75, 0.0) 100%   
     );
     
@@ -144,10 +145,22 @@
     pointer-events: none; 
   }
 
-  /* 3. Upewniamy się, że treść jest na wierzchu */
+  /* Dodatkowa poprawka na urządzenia mobilne (parallax fixed często tam nie działa) */
+  @media (max-width: 1024px) {
+    .section.parallax-container {
+      background-attachment: scroll;
+    }
+  }
+
+  /* 3. Treść na wierzchu */
   .parallax-content {
     position: relative;
-    z-index: 2; 
+    z-index: 2;
+    padding: 100px 0; /* Dodajemy padding zamiast przesuwać tło, co daje lepszy efekt wizualny */
+  }
+
+  .font-weight-extra-black {
+    font-weight: 900;
   }
 </style>
 
@@ -157,10 +170,17 @@
       <div class="container">
         <div class="block-custom">
           <h2 class="font-weight-extra-black wow clipInLeft" data-wow-delay=".1s">SHS Smart Home System</h2>
-          <h4 class="text-default wow clipInLeft" data-wow-delay=".1s">Nowoczesne techniki grzewcze i inteligentne systemy sterowania. Zapewniamy efektywność energetyczną oraz najwyższy komfort cieplny w Twoim domu.</h4>
+          <h4 class="text-default wow clipInLeft" data-wow-delay=".1s">
+            Nowoczesne techniki grzewcze i inteligentne systemy sterowania. 
+            Zapewniamy efektywność energetyczną oraz najwyższy komfort cieplny w Twoim domu.
+          </h4>
           <div class="group-xl group-middle">
-            <div><a class="button button-lg button-white button-shadow button-winona wow clipInLeft" href="about-us.html" data-wow-delay=".2s">O firmie</a></div>
-            <div><a class="button button-lg button-primary button-shadow button-winona wow clipInLeft" href="contact-us.html" data-wow-delay=".2s">Skontaktuj się</a></div>
+            <div>
+              <a class="button button-lg button-white button-shadow button-winona wow clipInLeft" href="about-us.html" data-wow-delay=".2s">O firmie</a>
+            </div>
+            <div>
+              <a class="button button-lg button-primary button-shadow button-winona wow clipInLeft" href="contact-us.html" data-wow-delay=".2s">Skontaktuj się</a>
+            </div>
           </div>
         </div>
       </div>
