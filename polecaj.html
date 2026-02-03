@@ -13,7 +13,7 @@
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
   <body>
-   
+    
     <div class="preloader" id="loading">
       <div class="preloader-body">
         <div id="loading-center-object">
@@ -95,7 +95,7 @@ margin-bottom: 10px;
           </ul>
         </div>
         <div class="rd-navbar-element">
-         
+          
         </div>
         <div class="rd-navbar-dummy"></div>
       </div>
@@ -111,9 +111,11 @@ margin-bottom: 10px;
     /* WYSOKOŚĆ: 85% wysokości okna */
     min-height: 85vh;
     
-    /* Reset marginesów - sekcja pod samym menu */
+    /* Reset marginesów */
     margin-top: 0px !important;
-    padding-top: 0;
+    
+    /* POPRAWKA: Dodajemy duży padding od góry, aby menu nie zasłaniało treści */
+    padding-top: 160px;
     
     /* Centrowanie treści */
     display: flex;
@@ -141,7 +143,7 @@ margin-bottom: 10px;
       to right, 
       rgba(30, 50, 75, 0.55) 0%,   
       rgba(30, 50, 75, 0.4) 10%,   
-      rgba(30, 50, 75, 0.1) 30%   
+      rgba(30, 50, 75, 0.1) 30%    
     );
 
     
@@ -162,6 +164,8 @@ margin-bottom: 10px;
     .section.parallax-container {
       background-attachment: scroll !important;
       min-height: 600px;
+      /* Na mobilkach menu jest mniejsze, więc padding też może być mniejszy */
+      padding-top: 100px;
     }
   }
 </style>
@@ -331,7 +335,7 @@ margin-bottom: 10px;
       </div>
     </div>
   </div>
-  
+   
   <div class="footer-classic-aside">
     <div class="container">
       <p class="rights">
