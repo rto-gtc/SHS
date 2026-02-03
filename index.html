@@ -102,30 +102,36 @@
   </div>
 </header>
 <style>
-  /* 1. Kontener sekcji */
+  /* 1. Główny kontener sekcji */
   .section.parallax-container {
     position: relative;
     z-index: 0;
-    overflow: hidden; /* Zapewnia, że nic nie wystaje */
+    overflow: hidden;
     
-    /* ZMIANA: Używamy background-size: cover, aby obraz zawsze wypełniał sekcję.
-       Zamiast sztywnego 100px, używamy procentowego pozycjonowania lub 
-       zostawiamy center, aby uniknąć dziur przy background-attachment: fixed. */
+    /* Ustawienie wysokości na 85% wysokości ekranu */
+    height: 85vh;
+    min-height: 500px; /* Bezpiecznik dla bardzo niskich ekranów */
+    
+    display: flex;
+    align-items: center; /* Centrowanie treści w pionie wewnątrz 85vh */
+
+    /* Obraz tła */
     background-image: url('https://static.wixstatic.com/media/e0bdea_ce9955425dfe4c0a964de64ef3912bb4~mv2.png');
-    background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center; 
+    background-size: cover;
     
-    /* Jeśli musisz obniżyć tło, bezpieczniej jest manipulować paddingiem sekcji 
-       lub użyć background-position: center 20%, co jest bardziej responsywne */
-    min-height: 500px; /* Przykładowa wysokość, by parallax był widoczny */
+    /* PARALLAX FIX: 
+       Ustawiamy pozycję na center, ale dodajemy margines u góry przez top, 
+       aby tło nie "uciekało" pod menu na samym starcie. */
+    background-attachment: fixed;
+    background-position: center center;
   }
 
-  /* 2. Nakładka (overlay) - Rozszerzona, aby pokryć całą przestrzeń */
+  /* 2. Nakładka (overlay) - Naprawiona, by nie było dziur przy przewijaniu */
   .section.parallax-container::before {
     content: '';
     position: absolute;
+    /* Rozciągnięcie na sztywno do krawędzi kontenera */
     top: 0;
     left: 0;
     right: 0;
@@ -133,11 +139,11 @@
     width: 100%;
     height: 100%;
     
-    /* GRADIENT dopasowany do tła strony, by niwelować "dziury" na krawędziach */
+    /* Gradient: Ciemny granat dopasowany do logotypu/designu */
     background: linear-gradient(
       to right, 
-      rgba(30, 50, 75, 0.95) 0%,   
-      rgba(30, 50, 75, 0.7) 40%,   
+      rgba(30, 50, 75, 0.98) 0%,   
+      rgba(30, 50, 75, 0.8) 35%,   
       rgba(30, 50, 75, 0.0) 100%   
     );
     
@@ -145,22 +151,32 @@
     pointer-events: none; 
   }
 
-  /* Dodatkowa poprawka na urządzenia mobilne (parallax fixed często tam nie działa) */
-  @media (max-width: 1024px) {
-    .section.parallax-container {
-      background-attachment: scroll;
-    }
-  }
-
-  /* 3. Treść na wierzchu */
+  /* 3. Treść sekcji */
   .parallax-content {
     position: relative;
     z-index: 2;
-    padding: 100px 0; /* Dodajemy padding zamiast przesuwać tło, co daje lepszy efekt wizualny */
+    width: 100%;
+    /* Kompensacja menu - jeśli menu przycina górę, dodajemy padding-top */
+    padding-top: 80px; 
   }
 
+  /* Dodatki wizualne */
   .font-weight-extra-black {
     font-weight: 900;
+    letter-spacing: -1px;
+  }
+
+  .block-custom {
+    max-width: 800px;
+  }
+
+  /* Wyłączenie fixed na mobile - zapobiega przeskakiwaniu tła */
+  @media (max-width: 1024px) {
+    .section.parallax-container {
+      background-attachment: scroll;
+      height: auto;
+      padding: 100px 0;
+    }
   }
 </style>
 
@@ -169,17 +185,23 @@
     <div class="page-header-2-inner">
       <div class="container">
         <div class="block-custom">
-          <h2 class="font-weight-extra-black wow clipInLeft" data-wow-delay=".1s">SHS Smart Home System</h2>
+          <h2 class="font-weight-extra-black wow clipInLeft" data-wow-delay=".1s">
+            SHS Smart Home System
+          </h2>
           <h4 class="text-default wow clipInLeft" data-wow-delay=".1s">
             Nowoczesne techniki grzewcze i inteligentne systemy sterowania. 
             Zapewniamy efektywność energetyczną oraz najwyższy komfort cieplny w Twoim domu.
           </h4>
           <div class="group-xl group-middle">
             <div>
-              <a class="button button-lg button-white button-shadow button-winona wow clipInLeft" href="about-us.html" data-wow-delay=".2s">O firmie</a>
+              <a class="button button-lg button-white button-shadow button-winona wow clipInLeft" href="about-us.html" data-wow-delay=".2s">
+                O firmie
+              </a>
             </div>
             <div>
-              <a class="button button-lg button-primary button-shadow button-winona wow clipInLeft" href="contact-us.html" data-wow-delay=".2s">Skontaktuj się</a>
+              <a class="button button-lg button-primary button-shadow button-winona wow clipInLeft" href="contact-us.html" data-wow-delay=".2s">
+                Skontaktuj się
+              </a>
             </div>
           </div>
         </div>
