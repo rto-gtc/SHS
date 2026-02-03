@@ -57,6 +57,7 @@
     .rd-navbar-nav {
       margin-left: 0;
       margin-right: 0;
+margin-bottom: 10px;
     }
   }
 </style>
@@ -102,106 +103,31 @@
   </div>
 </header>
 <style>
-  /* 1. Główny kontener sekcji */
+  /* Ustawienia layoutu i efektu parallax */
   .section.parallax-container {
     position: relative;
     z-index: 0;
-    overflow: hidden;
     
-    /* Ustawienie wysokości na 85% wysokości ekranu */
-    height: 85vh;
-    min-height: 500px; /* Bezpiecznik dla bardzo niskich ekranów */
-    
-    display: flex;
-    align-items: center; /* Centrowanie treści w pionie wewnątrz 85vh */
-
-    /* Obraz tła */
-    background-image: url('https://static.wixstatic.com/media/e0bdea_a83534050096421391716a1d04173195~mv2.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    /* PARALLAX FIX: 
-       Ustawiamy pozycję na center, ale dodajemy margines u góry przez top, 
-       aby tło nie "uciekało" pod menu na samym starcie. */
-    background-attachment: fixed;
-    background-position: center center;
-  }
-
-  /* 2. Nakładka (overlay) - Naprawiona, by nie było dziur przy przewijaniu */
-  .section.parallax-container::before {
-    content: '';
-    position: absolute;
-    /* Rozciągnięcie na sztywno do krawędzi kontenera */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    
-    /* Gradient: Ciemny granat dopasowany do logotypu/designu */
-    background: linear-gradient(
-      to right, 
-      rgba(30, 50, 75, 0.98) 0%,   
-      rgba(30, 50, 75, 0.8) 35%,   
-      rgba(30, 50, 75, 0.0) 100%   
-    );
-    
-    z-index: 1; 
-    pointer-events: none; 
-  }
-
-  /* 3. Treść sekcji */
-  .parallax-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    /* Kompensacja menu - jeśli menu przycina górę, dodajemy padding-top */
-    padding-top: 80px; 
-  }
-
-  /* Dodatki wizualne */
-  .font-weight-extra-black {
-    font-weight: 900;
-    letter-spacing: -1px;
-  }
-
-  .block-custom {
-    max-width: 800px;
-  }
-
-  /* Wyłączenie fixed na mobile - zapobiega przeskakiwaniu tła */
-  @media (max-width: 1024px) {
-    .section.parallax-container {
-      background-attachment: scroll;
-      height: auto;
-      padding: 100px 0;
-    }
-  }
-</style>
-
-<style>
-  /* Główne ustawienia sekcji */
-  .section.parallax-container {
-    position: relative;
-    z-index: 0;
+    /* WYSOKOŚĆ: 85% wysokości okna */
     min-height: 85vh;
     
-    /* USUNIĘTO !important: Teraz marginesy z HTML będą działać */
-    margin: 0; 
-    padding: 0;
+    /* Reset marginesów - sekcja pod samym menu */
+    margin-top: 0px !important;
+    padding-top: 0;
     
+    /* Centrowanie treści */
     display: flex;
     align-items: center;
     justify-content: center;
     
+    /* Ustawienia tła (obraz jest w HTML, tu tylko zachowanie) */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Efekt Parallax */
   }
 
-  /* Nakładka z gradientem */
+  /* Ciemna nakładka (Gradient) */
   .section.parallax-container::before {
     content: '';
     position: absolute;
@@ -209,17 +135,19 @@
     left: 0;
     width: 100%;
     height: 100%;
+    
     background: linear-gradient(
       to right, 
       rgba(30, 50, 75, 0.95) 0%,   
       rgba(30, 50, 75, 0.7) 40%,   
       rgba(30, 50, 75, 0.1) 100%   
     );
+    
     z-index: 1; 
     pointer-events: none; 
   }
 
-  /* Kontener treści */
+  /* Treść */
   .parallax-content {
     position: relative;
     z-index: 2; 
@@ -227,19 +155,17 @@
     padding: 20px;
   }
 
-  /* Responsywność dla urządzeń mobilnych */
+  /* Responsywność (wyłączenie parallax na mobilkach dla płynności) */
   @media (max-width: 768px) {
     .section.parallax-container {
       background-attachment: scroll !important;
       min-height: 600px;
-      /* Opcjonalnie reset marginesu na mobilkach, jeśli 360px to za dużo */
-      margin-top: 50px !important; 
     }
   }
 </style>
 
 <section class="section parallax-container context-dark" 
-         style="background-image: url('https://static.wixstatic.com/media/e0bdea_a83534050096421391716a1d04173195~mv2.png'); margin-bottom: 10px;">
+         style="background-image: url('https://static.wixstatic.com/media/e0bdea_ce9955425dfe4c0a964de64ef3912bb4~mv2.png');">
          
   <div class="parallax-content">
     <div class="page-header-2-inner">
@@ -256,7 +182,485 @@
     </div>
   </div>
 </section>
-     
+     <section class="section section-md bg-gray-100 text-center">
+  <div class="container">
+    <div class="badge wow fadeIn">Nasza Oferta</div>
+    <h3 class="wow fadeIn">Zakres Usług</h3>
+    <div class="row row-30 row-xl-60">
+      <div class="col-sm-6 col-lg-4">
+        <article class="box-modern wow fadeIn" data-anime="circles-2">
+          <div class="box-modern-media">
+            <div class="box-modern-icon mdi mdi-layers"></div>
+            <div class="box-modern-circle box-modern-circle-1"></div>
+          </div>
+          <p class="box-modern-title">Ogrzewanie podłogowe i ścienne</p>
+          <div class="box-modern-text">
+            <p>Projektujemy i montujemy nowoczesne systemy ogrzewania płaszczyznowego dla maksymalnego komfortu.</p>
+          </div>
+          <a class="button button-sm button-primary button-winona" href="ogrzewanie-podlogowe.html">Czytaj więcej</a>
+        </article>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <article class="box-modern wow fadeIn" data-anime="circles-2">
+          <div class="box-modern-media">
+            <div class="box-modern-icon mdi mdi-leaf"></div>
+            <div class="box-modern-circle box-modern-circle-1"></div>
+          </div>
+          <p class="box-modern-title">Odnawialne źródła energii z dotacją</p>
+          <div class="box-modern-text">
+            <p>Ekologiczne rozwiązania wykorzystujące energię natury, które obniżają koszty eksploatacji budynku.</p>
+          </div>
+          <a class="button button-sm button-primary button-winona" href="example.html">Czytaj więcej</a>
+        </article>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <article class="box-modern wow fadeIn" data-anime="circles-2">
+          <div class="box-modern-media">
+            <div class="box-modern-icon mdi mdi-wifi"></div>
+            <div class="box-modern-circle box-modern-circle-1"></div>
+          </div>
+          <p class="box-modern-title">Ogrzewanie grzejnikowe Smart</p>
+          <div class="box-modern-text">
+            <p>Inteligentne systemy sterowania grzejnikami, pozwalające na pełną kontrolę temperatury przez aplikację.</p>
+          </div>
+          <a class="button button-sm button-primary button-winona" href="ogrzewanie-grzejnikowe.html">Czytaj więcej</a>
+        </article>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <article class="box-modern wow fadeIn" data-anime="circles-2">
+          <div class="box-modern-media">
+            <div class="box-modern-icon mdi mdi-sync"></div>
+            <div class="box-modern-circle box-modern-circle-1"></div>
+          </div>
+          <p class="box-modern-title">Pompy ciepła</p>
+          <div class="box-modern-text">
+            <p>Wydajne i energooszczędne urządzenia grzewcze, stanowiące serce nowoczesnej instalacji.</p>
+          </div>
+          <a class="button button-sm button-primary button-winona" href="pompy-ciepla.html">Czytaj więcej</a>
+        </article>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <article class="box-modern wow fadeIn" data-anime="circles-2">
+          <div class="box-modern-media">
+            <div class="box-modern-icon mdi mdi-weather-sunny"></div>
+            <div class="box-modern-circle box-modern-circle-1"></div>
+          </div>
+          <p class="box-modern-title">Nagrzewnice i promienniki</p>
+          <div class="box-modern-text">
+            <p>Skuteczne rozwiązania grzewcze dla dużych kubatur, hal przemysłowych oraz magazynów.</p>
+          </div>
+          <a class="button button-sm button-primary button-winona" href="apengroup.html">Czytaj więcej</a>
+        </article>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <article class="box-modern wow fadeIn" data-anime="circles-2">
+          <div class="box-modern-media">
+            <div class="box-modern-icon mdi mdi-fire"></div>
+            <div class="box-modern-circle box-modern-circle-1"></div>
+          </div>
+          <p class="box-modern-title">Palniki gazowe</p>
+          <div class="box-modern-text">
+            <p>Profesjonalny dobór, montaż i serwis palników gazowych, zapewniający bezpieczeństwo i wydajność.</p>
+          </div>
+          <a class="button button-sm button-primary button-winona" href="example.html">Czytaj więcej</a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+   <section class="section section-xl bg-accent">
+  <div class="container">
+    <div class="row row-50 justify-content-center flex-lg-row-reverse align-items-center justify-content-lg-between">
+      <div class="col-sm-10 col-lg-5 wow fadeInRightSmall">
+        <div class="badge">O systemie SHS</div>
+        <h3>Innowacyjne inteligentne systemy grzewcze SHS</h3>
+        <p class="big inset-2">Smart Home System (SHS) to przyszłość zarządzania ciepłem w Twoim domu. Nasze rozwiązanie łączy zaawansowaną technologię z intuicyjną obsługą, zapewniając Ci:</p>
+        <ul class="list-marked">
+          <li>Inteligentną optymalizację zużycia energii</li>
+          <li>Pełną kontrolę temperatury z poziomu aplikacji</li>
+          <li>Niezawodność i bezpieczeństwo instalacji</li>
+        </ul>
+        <a class="button button-primary button-shadow button-winona font-weight-sbold" href="about-us.html">Dowiedz się więcej</a>
+      </div>
+      <div class="col-sm-10 col-lg-6 wow fadeInLeftSmall">
+        <div class="thumbnail-classy">
+          <img src="https://static.wixstatic.com/media/e0bdea_c83b54395b394968b7956a23e7d05049~mv2.png" alt="SHS Smart Home System" style="width: 100%; height: auto; border-radius: 6px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+   <section class="section section-lg">
+  <div class="container">
+    <div class="row row-50">
+      <div class="col-sm-10 col-lg-5 wow fadeInRightSmall">
+        <div class="badge">Dla Biznesu</div>
+        <h3>Inteligentne ogrzewanie dla firm i przemysłu</h3>
+        <p class="big inset-3" style="letter-spacing: .025em">System SHS to rozwiązanie zaprojektowane z myślą o redukcji kosztów operacyjnych w dużych obiektach. Optymalizujemy zużycie energii tam, gdzie skala ma największe znaczenie:</p>
+        <ul class="list-marked">
+          <li>Zdalne zarządzanie halami i magazynami</li>
+          <li>Redukcja kosztów ogrzewania do 30%</li>
+          <li>Monitoring zużycia mediów w czasie rzeczywistym</li>
+        </ul>
+        <a class="button button-primary button-shadow button-winona font-weight-sbold" href="industry-solutions.html">Czytaj więcej</a>
+      </div>
+      <div class="col-sm-10 col-lg-7 wow fadeInLeftSmall text-center">
+        <img class="img-custom" src="https://static.wixstatic.com/media/e0bdea_59ab47c8c75342daa1e921f45a688506~mv2.png" alt="Inteligentne systemy grzewcze dla przemysłu" width="610" height="432"/>
+      </div>
+    </div>
+  </div>
+</section>
+     <style>
+  .custom-parallax-overlay {
+    position: relative;
+    /* Zmiana na cover, aby obraz wypełnił całą szerokość i wysokość sekcji */
+    background-image: url('https://static.wixstatic.com/media/e0bdea_646f4d006f7c471490ae0542b59b5e8b~mv2.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #1a1a1a;
+    z-index: 1;
+    /* Dodanie paddingu, aby treść nie dotykała krawędzi przy skalowaniu */
+    padding: 100px 0;
+  }
+
+  .custom-parallax-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Lekko ciemniejszy overlay dla lepszego kontrastu białych liter */
+    z-index: 0;
+  }
+
+  .custom-parallax-overlay .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Wymuszenie białego koloru dla wszystkich tekstów wewnątrz sekcji */
+  .custom-parallax-overlay h3, 
+  .custom-parallax-overlay h3 span,
+  .custom-parallax-overlay h3 .text-accent,
+  .custom-parallax-overlay p,
+  .custom-parallax-overlay .badge {
+    color: #ffffff !important;
+  }
+
+  /* Opcjonalnie: dostosowanie badge, jeśli ma mieć białe obramowanie/tekst */
+  .custom-parallax-overlay .badge {
+    border-color: #ffffff;
+    background-color: transparent;
+  }
+</style>
+
+<section class="section section-md custom-parallax-overlay" id="about-us">
+  <div class="container">
+    <div class="row row-50 justify-content-end">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <div class="block-5 wow clipInLeft">
+          <div class="badge wow clipInLeft">Serwis Mobilny SHS</div>
+          <h3 class="wow clipInLeft" data-wow-delay=".1s">
+            <span>Wsparcie techniczne</span><br>
+            <span class="text-accent">24 / 7 / 365 dni w roku</span>
+          </h3>
+          <p class="big wow clipInLeft inset-3" data-wow-delay=".2s">
+            Twoje bezpieczeństwo cieplne to nasz priorytet. Wszystkie nasze instalacje SHS pozostają pod stałą, profesjonalną opieką techniczną, gwarantując ciągłość pracy systemów grzewczych niezależnie od pory dnia.
+          </p>
+          <a class="button button-primary button-winona wow clipInLeft font-weight-sbold" href="contact.html" data-wow-delay=".3s">Zgłoś serwis</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      <style>
+  /* Główne ustawienia sekcji */
+  .shs-installment-white {
+    padding: 80px 0;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    referflow: hidden;
+  }
+
+  /* Teksty */
+  .shs-installment-white h2, 
+  .shs-installment-white h3, 
+  .shs-installment-white p {
+    color: #1a1a1a !important;
+  }
+
+  /* Grupa przycisków - GWARANCJA JEDNEJ LINII */
+  .shs-button-row {
+    display: flex !important;
+    flex-direction: row !important; /* Wymuszenie poziomu */
+    align-items: center !important; /* Wyrównanie w pionie względem siebie */
+    gap: 15px;
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .shs-button-row .button {
+    flex: 0 1 220px;
+    text-align: center;
+    white-space: nowrap;
+    height: 50px !important; /* Stała wysokość */
+    line-height: 50px !important; /* Wyśrodkowanie tekstu w pionie */
+    padding: 0 10px !important;
+    margin: 0 !important; /* Usunięcie marginesów, które mogły spychać button */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* Animacja góra-dół */
+  @keyframes floatAnimation {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .shs-floating-element {
+    animation: floatAnimation 4s ease-in-out infinite;
+  }
+
+  .shs-side-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Responsywność - tylko na małych ekranach pozwalamy na dwa rzędy */
+  @media (max-width: 480px) {
+    .shs-button-row {
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+    .shs-button-row .button {
+      flex: 1 1 auto;
+      width: 100%;
+    }
+  }
+</style>
+
+<style>
+  /* --- STYLIZACJA SEKCJI GŁÓWNEJ --- */
+  .shs-installment-white {
+    padding: 80px 0;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    position: relative;
+    z-index: 1;
+  }
+
+  .shs-installment-white h2, 
+  .shs-installment-white h3, 
+  .shs-installment-white p {
+    color: #1a1a1a !important;
+  }
+
+  /* Układ przycisków */
+  .shs-button-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 15px;
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .shs-button-row .button {
+    flex: 0 1 220px;
+    text-align: center;
+    white-space: nowrap;
+    height: 52px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* Styl przycisku Dotacje */
+  .shs-button-row .button-dotacje {
+    background-color: transparent !important;
+    color: #0056b3 !important;
+    border: 2px solid #007bff !important;
+  }
+
+  .shs-button-row .button-dotacje:hover {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+  }
+
+  /* Animacja obrazka obok tekstu */
+  @keyframes floatAnimation {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .shs-floating-element {
+    animation: floatAnimation 4s ease-in-out infinite;
+    display: block;
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    .shs-button-row { flex-direction: column !important; }
+    .shs-button-row .button { width: 100%; max-width: 280px; }
+  }
+
+  /* --- STYLIZACJA PRZYCISKU ZAMYKANIA (X) --- */
+  /* Nadpisanie domyślnego stylu Bootstrapa, aby X był idealnie czarny i widoczny */
+  #shsBootstrapModal .btn-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1060; /* Musi być nad treścią */
+    filter: grayscale(1) brightness(0) contrast(100%); /* Wymuszenie czerni */
+    opacity: 0.6;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    background-size: 1.5rem; /* Powiększenie samego krzyżyka */
+  }
+
+  #shsBootstrapModal .btn-close:hover {
+    opacity: 1;
+    transform: scale(1.1); /* Lekkie powiększenie przy najechaniu */
+  }
+</style>
+
+<section class="section section-md shs-installment-white" id="raty-shs">
+  <div class="container">
+    <div class="row row-50 align-items-center">
+      <div class="col-md-6 col-lg-7">
+        <div class="block-5">
+          <div class="badge wow clipInLeft" style="color: #1a1a1a !important; border: 1px solid #1a1a1a; padding: 5px 15px; display: inline-block; margin-bottom: 20px;">Finansowanie SHS</div>
+          <h2 class="wow clipInLeft" data-wow-delay=".1s">Instalacje SHS w systemie ratalnym</h2>
+          <h3 class="wow clipInLeft" data-wow-delay=".15s" style="color: #333 !important;">Zapomnij o dużych kosztach na start</h3>
+          <p class="big wow clipInLeft" data-wow-delay=".2s">
+            Już nie musisz przejmować się kosztami Twojej instalacji. W systemie ratalnym z dotacją możesz mieć nasz system już od <strong>10% wkładu własnego</strong>.
+          </p>
+          
+          <div class="shs-button-row wow clipInLeft" data-wow-delay=".3s">
+            <a class="button button-primary button-winona font-weight-sbold" href="raty.html">Oblicz ratę</a>
+            
+            <a class="button button-dotacje button-winona font-weight-sbold" 
+               href="#" 
+               data-bs-toggle="modal" 
+               data-bs-target="#shsBootstrapModal">
+               O dotacjach
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-5">
+        <div class="shs-floating-element">
+          <img src="https://static.wixstatic.com/media/e0bdea_e202580ddf914018b813a1e5ff0ba501~mv2.png" alt="System Ratalny SHS" style="width: 100%; height: auto;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="shsBootstrapModal" tabindex="-1" aria-labelledby="shsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    
+    <div class="modal-content border-0 shadow-lg" style="background: white; border-radius: 15px; overflow: hidden; position: relative;">
+      
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+      <div class="modal-body p-0">
+        <div class="row g-0">
+          
+          <div class="col-md-5 bg-light" style="min-height: 350px; position: relative;">
+            <img src="https://static.wixstatic.com/media/e0bdea_6f0f3fe3a1dc44baa2a489d6f374ac94~mv2.jpg" 
+                 alt="Program Czyste Powietrze" 
+                 style="width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; top: 0; left: 0;">
+          </div>
+
+          <div class="col-md-7 p-4 p-lg-5 d-flex flex-column justify-content-center text-start">
+            <h4 class="fw-bold text-primary mb-3" id="shsModalLabel" style="color: #007bff !important; padding-right: 20px;">Program Czyste Powietrze 2026</h4>
+            
+            <p class="text-muted mb-3" style="font-size: 15px; line-height: 1.6; color: #555 !important;">
+              Skorzystaj z nowej odsłony rządowego programu. Zmniejsz emisję i oszczędzaj energię dzięki dofinansowaniu wymiany źródła ciepła.
+            </p>
+
+            <p class="mb-2 fw-bold text-dark" style="color: #000 !important;">Co zyskujesz z SHS?</p>
+            
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2 position-relative ps-4 text-muted" style="font-size: 14px;">
+                <span class="text-primary fw-bold position-absolute start-0" style="color: #007bff;">✓</span>
+                Dofinansowanie do <strong class="text-dark">135 000 zł</strong>
+              </li>
+              <li class="mb-2 position-relative ps-4 text-muted" style="font-size: 14px;">
+                <span class="text-primary fw-bold position-absolute start-0" style="color: #007bff;">✓</span>
+                Zwrot kosztów pompy ciepła i SHS
+              </li>
+              <li class="mb-2 position-relative ps-4 text-muted" style="font-size: 14px;">
+                <span class="text-primary fw-bold position-absolute start-0" style="color: #007bff;">✓</span>
+                Przygotowujemy 100% dokumentacji
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="referral-promo py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 shadow-lg overflow-hidden" 
+                     style="background: url('https://static.wixstatic.com/media/e0bdea_ed93742f8fac424c8896a089811f620b~mv2.png') no-repeat center center; background-size: cover; min-height: 400px; border-radius: 20px;">
+                    
+                    <div class="card-body d-flex flex-column justify-content-center align-items-start p-5 h-100" style="background: rgba(0,0,0,0.1);">
+                        
+                   
+
+                    </div>
+                    
+                    <a href="promoj.pl" class="stretched-link" aria-label="Szczegóły programu poleceń"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .referral-promo .card {
+        transition: transform 0.3s ease-in-out;
+    }
+    .referral-promo .card:hover {
+        transform: scale(1.01);
+    }
+    /* Responsywność wysokości dla urządzeń mobilnych */
+    @media (max-width: 768px) {
+        .referral-promo .card {
+            min-height: 550px !important;
+        }
+        .referral-promo .promo-content {
+            text-align: center;
+            width: 100%;
+        }
+        .referral-promo .card-body {
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 2rem !important;
+        }
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <style>
   /* Personalizacja kolorystyki stopki */
