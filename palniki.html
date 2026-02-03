@@ -563,6 +563,8 @@
 </style>
 
 
+
+
 <style>
   /* Stylizacja sekcji technologicznej */
   .shs-tech-section {
@@ -669,12 +671,12 @@
     transform: scaleX(1);
   }
 
-  /* Stylizacja Modelu 3D - ZMNIEJSZONA */
+  /* Stylizacja Modelu 3D - DRASTYCZNIE ZMNIEJSZONA */
   .model-wrapper {
     position: relative;
-    width: 80%;       /* Zmniejszono ze 100% */
-    height: 250px;    /* Zmniejszono z 400px (ok. 30% mniej) */
-    margin: 0 auto;   /* Wyśrodkowanie mniejszego modelu */
+    max-width: 300px; /* Sztywne ograniczenie szerokości */
+    height: 300px;    /* Sztywne ograniczenie wysokości */
+    margin: 0 auto;   /* Wyśrodkowanie */
   }
 
   model-viewer {
@@ -696,7 +698,8 @@
             camera-controls 
             auto-rotate
             shadow-intensity="1"
-            camera-orbit="45deg 55deg 38%"
+            /* Zwiększono wartość procentową do 150%, aby oddalić kamerę (zmniejszyć obiekt wizualnie) */
+            camera-orbit="45deg 55deg 150%" 
             min-camera-orbit="auto auto 5%"
             max-camera-orbit="auto auto 500%"
             field-of-view="30deg"
@@ -743,6 +746,16 @@
     </div>
   </div>
 </section>
+
+      
+
+
+
+
+
+
+
+      
 
 <footer class="section footer-classic">
   <div class="footer-classic-main">
