@@ -180,37 +180,76 @@
   }
 </style>
 
+<style>
+  /* Główne ustawienia sekcji */
+  .section.parallax-container {
+    position: relative;
+    z-index: 0;
+    min-height: 85vh;
+    
+    /* USUNIĘTO !important: Teraz marginesy z HTML będą działać */
+    margin: 0; 
+    padding: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  /* Nakładka z gradientem */
+  .section.parallax-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right, 
+      rgba(30, 50, 75, 0.95) 0%,   
+      rgba(30, 50, 75, 0.7) 40%,   
+      rgba(30, 50, 75, 0.1) 100%   
+    );
+    z-index: 1; 
+    pointer-events: none; 
+  }
+
+  /* Kontener treści */
+  .parallax-content {
+    position: relative;
+    z-index: 2; 
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* Responsywność dla urządzeń mobilnych */
+  @media (max-width: 768px) {
+    .section.parallax-container {
+      background-attachment: scroll !important;
+      min-height: 600px;
+      /* Opcjonalnie reset marginesu na mobilkach, jeśli 360px to za dużo */
+      margin-top: 50px !important; 
+    }
+  }
+</style>
+
 <section class="section parallax-container context-dark" 
-         style="background-image: url('https://static.wixstatic.com/media/e0bdea_0eaa561693a04d3caff16a9afe8212e9~mv2.png');">
+         style="background-image: url('https://static.wixstatic.com/media/e0bdea_ce9955425dfe4c0a964de64ef3912bb4~mv2.png'); margin-top: 360px; margin-bottom: 10px;">
          
   <div class="parallax-content">
     <div class="page-header-2-inner">
       <div class="container">
-        <div class="row justify-content-end">
-          <div class="col-lg-8 col-xl-7">
-            
-            <div class="block-custom text-right" style="margin-left: auto;">
-              
-              <h2 class="font-weight-extra-black wow clipInLeft" data-wow-delay=".1s">
-                Program Poleceń SHS
-              </h2>
-              
-              <h4 class="text-default wow clipInLeft" data-wow-delay=".1s">
-                Polecaj nasze usługi i zarabiaj realne pieniądze. 
-                Możesz otrzymać nawet <span style="color: #ff4444; font-weight: 900; font-size: 1.2em;">2000 zł</span> za jedno skuteczne polecenie!
-              </h4>
-              
-              <div class="group-xl group-middle justify-content-end">
-                <div>
-                    <a class="button button-lg button-white button-shadow button-winona wow clipInLeft" href="polecaj.html" data-wow-delay=".2s">Dowiedz się więcej</a>
-                </div>
-                <div>
-                    <a class="button button-lg button-primary button-shadow button-winona wow clipInLeft" href="contact-us.html" data-wow-delay=".2s">Zgłoś polecenie</a>
-                </div>
-              </div>
-              
-            </div>
-            
+        <div class="block-custom">
+          <h2 class="font-weight-extra-black wow clipInLeft" data-wow-delay=".1s">SHS Smart Home System</h2>
+          <h4 class="text-default wow clipInLeft" data-wow-delay=".1s">Nowoczesne techniki grzewcze i inteligentne systemy sterowania. Zapewniamy efektywność energetyczną oraz najwyższy komfort cieplny w Twoim domu.</h4>
+          <div class="group-xl group-middle">
+            <div><a class="button button-lg button-white button-shadow button-winona wow clipInLeft" href="about-us.html" data-wow-delay=".2s">O firmie</a></div>
+            <div><a class="button button-lg button-primary button-shadow button-winona wow clipInLeft" href="contact-us.html" data-wow-delay=".2s">Skontaktuj się</a></div>
           </div>
         </div>
       </div>
