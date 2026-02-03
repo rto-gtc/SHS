@@ -403,7 +403,129 @@ margin-bottom: 10px;
     </div>
   </div>
 </section>
+<style>
+  /* Stylizacja Banera */
+  .promo-banner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 50px; /* Odstęp pod banerem */
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  
+  .promo-banner-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
+  /* Stylizacja Kafli z Korzyściami */
+  .benefit-card {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%; /* Równa wysokość kafli */
+  }
+
+  /* Efekt najechania myszką */
+  .benefit-card:hover {
+    transform: translateY(-10px); /* Kafel unosi się do góry */
+    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.15); /* Niebieska poświata */
+    border-color: #007bff;
+  }
+
+  /* Ikony w kaflach */
+  .benefit-icon {
+    font-size: 48px;
+    color: #007bff; /* Główny kolor firmowy */
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  
+  .benefit-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .benefit-text {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+</style>
+
+<section class="section section-md bg-default">
+  <div class="container">
+    
+    <div class="row justify-content-center">
+      <div class="col-12 wow fadeIn" data-wow-delay=".1s">
+        <div class="promo-banner-wrapper">
+          <img src="https://static.wixstatic.com/media/e0bdea_3523fe5c60ed4338b85b1646b3575a88~mv2.png" alt="Zarabiaj z SHS">
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-8">
+        <h3 class="font-weight-bold wow fadeInUp" data-wow-delay=".2s">Dlaczego warto dołączyć do programu?</h3>
+        <p class="lead text-gray-700 wow fadeInUp" data-wow-delay=".3s">
+          Stworzyliśmy system, który jest przejrzysty, uczciwy i niezwykle dochodowy. 
+          Nie wymagamy od Ciebie wiedzy technicznej – wystarczy, że skontaktujesz nas z zainteresowaną osobą.
+        </p>
+      </div>
+    </div>
+
+    <div class="row row-30 justify-content-center">
+      
+      <div class="col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay=".1s">
+        <div class="benefit-card">
+          <div class="benefit-icon mdi mdi-cash-multiple"></div>
+          <h5 class="benefit-title">Wysokie Prowizje</h5>
+          <p class="benefit-text">Nawet 2000 zł za jednego klienta. 500 zł za każdą skuteczną instalację w pakiecie.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay=".2s">
+        <div class="benefit-card">
+          <div class="benefit-icon mdi mdi-airplane"></div>
+          <h5 class="benefit-title">Konkurs Dubaj</h5>
+          <p class="benefit-text">Każda umowa to los w loterii. Raz na kwartał wysyłamy najlepszych na wakacje 5*.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay=".3s">
+        <div class="benefit-card">
+          <div class="benefit-icon mdi mdi-handshake"></div>
+          <h5 class="benefit-title">Proste zasady</h5>
+          <p class="benefit-text">Brak gwiazdek i ukrytych warunków. Podpisana umowa i wpłata klienta = przelew dla Ciebie.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay=".4s">
+        <div class="benefit-card">
+          <div class="benefit-icon mdi mdi-clock-fast"></div>
+          <h5 class="benefit-title">Szybka wypłata</h5>
+          <p class="benefit-text">Nie czekasz miesiącami. Środki wypłacamy niezwłocznie po rozliczeniu się klienta z nami.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay=".5s">
+        <div class="benefit-card">
+          <div class="benefit-icon mdi mdi-headset"></div>
+          <h5 class="benefit-title">Pełne wsparcie</h5>
+          <p class="benefit-text">My zajmujemy się sprzedażą, audytem i montażem. Ty tylko przekazujesz kontakt.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay=".6s">
+        <div class="benefit-card">
+          <div class="benefit-icon mdi mdi-star"></div>
+          <h5 class="benefit-title">Renoma SH
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <style>
