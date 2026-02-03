@@ -214,9 +214,233 @@ margin-bottom: 10px;
 
 
 
-      
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* Reset i podstawowe style */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fdfa; /* Lekko zielonkawe tło */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        header h1 {
+            color: #2c5e2e;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Stylizacja sekcji Zig-Zag */
+        .section-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 100px;
+        }
+
+        /* Co druga sekcja odwraca kolejność (Obraz - Tekst) */
+        .section-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .text-col {
+            flex: 1;
+        }
+
+        .img-col {
+            flex: 1;
+        }
+
+        .img-col img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .img-col img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Typografia w sekcjach */
+        h2 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #1b5e20;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.9em;
+        }
+
+        .highlight-box {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-left: 5px solid #4caf50;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        /* Responsywność dla telefonów */
+        @media (max-width: 900px) {
+            .section-row {
+                flex-direction: column !important; /* Wymuś pionowy układ na mobilkach */
+                gap: 30px;
+                margin-bottom: 60px;
+            }
+
+            .img-col img {
+                width: 100%;
+                max-height: 400px;
+                object-fit: cover;
+            }
+        }
+    </style>
+
+<div class="container">
+
+    <header>
+        <h1>Odnawialne źródła energii w Polsce 2026</h1>
+        <p>Polska intensyfikuje transformację energetyczną. Poznaj możliwości finansowania, rodzaje OZE i korzyści płynące z zielonej energii.</p>
+    </header>
+
+    <div class="section-row">
+        <div class="text-col">
+            <h2>Rodzaje odnawialnych źródeł energii</h2>
+            <p>Polska realizuje cele UE, zwiększając udział OZE w miksie energetycznym. Do najważniejszych technologii należą:</p>
+            
+            <h3>☀️ Energia słoneczna (Fotowoltaika)</h3>
+            <p>Najczęściej wybierana forma OZE. Panele montowane na dachach i gruncie generują prąd ze słońca.</p>
+
+            <h3>💨 Energia wiatru</h3>
+            <p>Zarówno duże farmy wiatrowe, jak i przydomowe turbiny do 20 kW. Uproszczone przepisy sprzyjają nowym lokalizacjom.</p>
+
+            <h3>🌿 Biomasa i Biogaz</h3>
+            <p>Biogazownie przetwarzają odpady rolnicze na biometan, prąd i ciepło – duży potencjał w regionach rolniczych.</p>
+        </div>
+        <div class="img-col">
+            <img src="https://static.wixstatic.com/media/e0bdea_63dfaa20815240a298248b372d6faafe~mv2.png" alt="Instalacja fotowoltaiczna">
+        </div>
+    </div>
+
+    <div class="section-row">
+        <div class="text-col">
+            <h2>Program „Mój Prąd 6.0”</h2>
+            <p>To jeden z najpopularniejszych programów dla prosumentów. W 2026 roku łączne wsparcie może wynieść nawet <strong>28 000 PLN</strong> na gospodarstwo domowe.</p>
+            
+            <div class="highlight-box">
+                <strong>Przykład finansowania:</strong><br>
+                Koszt instalacji (PV + Magazyn): 35 000 PLN<br>
+                Dotacja: 28 000 PLN<br>
+                <strong>Koszt realny: 7 000 PLN</strong>
+            </div>
+
+            <p style="margin-top: 15px;">Dofinansowanie obejmuje:</p>
+            <ul>
+                <li>Mikroinstalacje PV: do 7 000 PLN</li>
+                <li>Magazyny energii elektrycznej: do 16 000 PLN</li>
+                <li>Magazyny ciepła: do 5 000 PLN</li>
+            </ul>
+        </div>
+        <div class="img-col">
+            <img src="https://static.wixstatic.com/media/e0bdea_84038dd781fc4b3aa6027a79dfd9f85f~mv2.png" alt="Finansowanie i oszczędności">
+        </div>
+    </div>
+
+    <div class="section-row">
+        <div class="text-col">
+            <h2>Wsparcie dla wsi i przemysłu</h2>
+            <p>Program <strong>„Energia dla Wsi”</strong> skierowany jest do rolników i spółdzielni energetycznych. Oferuje dotacje pokrywające 45–65% kosztów oraz preferencyjne pożyczki do 100% wartości inwestycji.</p>
+            
+            <h3>🏭 Magazyny przemysłowe</h3>
+            <p>Programy NFOŚiGW wspierają również wielkoskalowe magazyny energii dla biznesu, co stabilizuje sieć energetyczną.</p>
+
+            <h3>🌍 Programy regionalne</h3>
+            <p>Lokalne samorządy (np. w woj. podlaskim) oferują dodatkowe środki z funduszy europejskich na rozwój infrastruktury OZE.</p>
+        </div>
+        <div class="img-col">
+            <img src="https://static.wixstatic.com/media/e0bdea_229c86b9644b416393577c4ea78a741c~mv2.png" alt="OZE na terenach wiejskich">
+        </div>
+    </div>
+
+    <div class="section-row">
+        <div class="text-col">
+            <h2>Dlaczego warto inwestować w 2026?</h2>
+            <p>Inwestycja w OZE to nie tylko ekologia, ale przede wszystkim matematyka. Dzięki połączeniu PV z magazynami energii zyskujesz:</p>
+            
+            <ul>
+                <li><strong>Niższe rachunki:</strong> Redukcja kosztów prądu o 70–90% w skali roku.</li>
+                <li><strong>Niezależność:</strong> Własny prąd podczas awarii sieci i drogich godzin szczytu.</li>
+                <li><strong>Ochrona środowiska:</strong> Realna redukcja emisji CO₂ i czystsze powietrze.</li>
+            </ul>
+
+            <div class="highlight-box" style="background-color: #e3f2fd; border-color: #2196f3;">
+                💡 <strong>Podsumowanie:</strong> Dzięki dotacjom inwestor płaci często tylko ok. 20% wartości rynkowej instalacji. Zwrot z inwestycji następuje błyskawicznie.
+            </div>
+        </div>
+        <div class="img-col">
+            <img src="https://static.wixstatic.com/media/e0bdea_fc1c1a3d5f08498699df5746222f5e6b~mv2.png" alt="Wykresy korzyści OZE">
+        </div>
+    </div>
+
+</div>
+
+
   <style>
   /* Personalizacja kolorystyki stopki */
   .footer-classic {
