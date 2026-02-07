@@ -264,9 +264,12 @@
           
           <div class="group-xl group-middle">
             <div>
-              <a class="button button-lg button-white button-shadow button-winona wow clipInLeft" href="#oferta-pv" data-wow-delay=".2s">
-                Zobacz realizacje
-              </a>
+             <a class="button button-lg button-white button-shadow button-winona wow clipInLeft" 
+   href="#oferta-pv" 
+   data-wow-delay=".2s"
+   onclick="openModal(); return false;">
+   Zobacz realizacje
+</a>
             </div>
             <div>
               <a class="button button-lg button-primary button-shadow button-winona wow clipInLeft" 
@@ -284,6 +287,237 @@
   </div>
 </section>
 
+
+
+<style>
+  /* Stylizacja modala (tła) */
+  .custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  /* Stylizacja kontentu w modalu */
+  .modal-content-container {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1200px;
+  }
+
+  /* Slajdy */
+  .mySlides {
+    display: none;
+    text-align: center;
+  }
+
+  .mySlides img {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  /* Przycisk zamkania */
+  .close-modal {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+    transition: 0.3s;
+  }
+
+  .close-modal:hover,
+  .close-modal:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Przyciski Następny/Poprzedni */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+  }
+
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+  }
+
+  /* Tekst opisu (Caption) */
+  .caption-container {
+    text-align: center;
+    background-color: black;
+    padding: 10px 16px;
+    color: white;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  /* Licznik slajdów (np. 1 / 5) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+  }
+
+  /* Animacja pojawiania się */
+  .fade {
+    animation-name: fade;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes fade {
+    from {opacity: 0.4}
+    to {opacity: 1}
+  }
+</style>
+
+
+<div id="shsModal" class="custom-modal">
+  <span class="close-modal" onclick="closeModal()">&times;</span>
+
+  <div class="modal-content-container">
+
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 5</div>
+      <img src="https://static.wixstatic.com/media/e0bdea_97d97cd471a34053aecc4601ddcee25d~mv2.png" alt="Montaż Gliwice">
+      <div class="caption-container">
+        Ekipa SHS montuje farme dachowa fotowolaticzną na zakladzie przemysłowym w gliwicach
+      </div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 5</div>
+      <img src="https://static.wixstatic.com/media/e0bdea_1fdd6d330f5340a3a9dc9ad91c668b74~mv2.png" alt="Maraton Kujawsko-Pomorskie">
+      <div class="caption-container">
+        Zestawienie montazy fotowoltaiki z kujowsko pomorskiego to byl ciezki 7 dniowy maraton paracy
+      </div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 5</div>
+      <img src="https://static.wixstatic.com/media/e0bdea_8fa5af5407ff45fda935d5d64cbb502a~mv2.png" alt="Przedszkole Lubelskie">
+      <div class="caption-container">
+        Montaz fotowolatiki na podszekolu miesjkim w lubelskim
+      </div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 5</div>
+      <img src="https://static.wixstatic.com/media/e0bdea_dd5eb364a12b4b01bdfc63e60fe47f55~mv2.png" alt="Farma Skotniki">
+      <div class="caption-container">
+        Farma fotowoltaiczna na ziemi w Skotnikach
+      </div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">5 / 5</div>
+      <img src="https://static.wixstatic.com/media/e0bdea_e518486b2aa0485abe800eeb7c42d08c~mv2.png" alt="Montaż Warszawa">
+      <div class="caption-container">
+        montaz fotowoltiki warszawa pokrycie zapotrzebowania w 86% klient posiada rowniez technike basenowa ktora zasila nasza instalacja
+      </div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+</div>
+
+<script>
+  // Inicjalizacja indeksu slajdu
+  let slideIndex = 1;
+
+  // Funkcja otwierająca modal
+  function openModal() {
+    document.getElementById("shsModal").style.display = "block";
+    showSlides(slideIndex);
+  }
+
+  // Funkcja zamykająca modal
+  function closeModal() {
+    document.getElementById("shsModal").style.display = "none";
+  }
+
+  // Sterowanie slajdami (przód/tył)
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  // Funkcja wyświetlająca konkretny slajd
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  // Główna logika wyświetlania
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    
+    // Pętla przewijania (jeśli koniec to wróć do początku)
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    
+    // Ukryj wszystkie slajdy
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    
+    // Pokaż aktualny slajd
+    slides[slideIndex-1].style.display = "block";
+  }
+
+  // Zamknij modal klikając poza obrazkiem
+  window.onclick = function(event) {
+    let modal = document.getElementById("shsModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+
+
+
+
+
+
+      
 <style>
   :root {
     --primary-color: #0d6efd;       /* Niebieski (Szyny, akcenty) */
