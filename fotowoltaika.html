@@ -289,56 +289,106 @@
 </section>
 
 <style>
-  /* Ciemne tło modala i dopasowanie do stylu strony */
+  /* 1. Tło modala - ciemniejsze dla lepszego kontrastu */
   #shsBootstrapModal .modal-content {
-    background-color: #222; /* Ciemnoszary kolor tła kontenera */
-    color: #fff;
-    border: 1px solid #444;
+    background-color: #1a1a1a; 
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
   }
 
-  #shsBootstrapModal .modal-header {
-    border-bottom: 1px solid #444;
-  }
-
+  /* Ukrywamy standardowy nagłówek i stopkę, aby zdjęcie było najważniejsze */
+  #shsBootstrapModal .modal-header, 
   #shsBootstrapModal .modal-footer {
-    border-top: 1px solid #444;
-  }
-
-  /* Przycisk zamknięcia na biały */
-  #shsBootstrapModal .btn-close {
-    filter: invert(1) grayscale(100%) brightness(200%);
-  }
-
-  /* Ustawienie maksymalnej wysokości zdjęć, aby mieściły się na ekranie */
-  .shs-gallery-img {
-    height: 70vh; /* 70% wysokości widoku */
-    width: 100%;
-    object-fit: contain; /* Skaluje obraz zachowując proporcje */
-    background-color: #000; /* Tło pod zdjęciem, jeśli ma inne proporcje */
-  }
-
-  /* Stylizacja podpisów */
-  .carousel-caption {
-    background: rgba(0, 0, 0, 0.7); /* Półprzezroczyste tło pod tekstem */
-    padding: 10px;
-    border-radius: 5px;
-    bottom: 20px;
+    border: none;
+    padding: 0;
   }
   
-  /* Powiększenie strzałek nawigacyjnych */
+  /* Ukrywamy standardowy przycisk zamykania Bootstrapa */
+  #shsBootstrapModal .btn-close {
+    display: none;
+  }
+
+  /* 2. CUSTOMOWY PRZYCISK ZAMYKANIA (Duży i wyraźny) */
+  .custom-close-btn {
+    position: absolute;
+    top: -15px;    /* Lekko wystaje poza modal */
+    right: -15px;  /* Lekko wystaje poza modal */
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1060; /* Musi być nad wszystkim */
+    border: 3px solid #000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  .custom-close-btn:hover {
+    background-color: #ff4d4d; /* Czerwony po najechaniu */
+    color: white;
+    transform: scale(1.1);
+  }
+
+  /* 3. ZDJĘCIA */
+  .shs-gallery-img {
+    height: 75vh;       /* Wysokość 75% ekranu */
+    width: 100%;
+    object-fit: contain; /* Całe zdjęcie widoczne */
+    background-color: #000; 
+  }
+
+  /* 4. NAPISY (CAPTION) - CZYTELNOŚĆ */
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.85); /* Mocne czarne tło */
+    padding: 15px;
+    border-radius: 5px;
+    bottom: 20px;
+    border-top: 2px solid #ffcc00; /* Żółty pasek dla akcentu */
+  }
+  
+  .carousel-caption p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* 5. STRZAŁKI NAWIGACJI (BARDZO WIDOCZNE) */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 80px; /* Szersze pole kliknięcia */
+    opacity: 1;  /* Zawsze pełna widoczność, bez zanikania */
+  }
+
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;  /* Duża ikona */
+    height: 4rem;
+    background-color: rgba(0, 0, 0, 0.7); /* Ciemne tło pod strzałką */
+    border-radius: 50%; /* Okrągłe tło strzałki */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-size: 50%; /* Skalowanie samej strzałki wewnątrz kółka */
+  }
+
+  .carousel-control-prev-icon:hover,
+  .carousel-control-next-icon:hover {
+    background-color: rgba(255, 204, 0, 0.9); /* Żółte podświetlenie po najechaniu */
   }
 </style>
 
 <div class="modal fade" id="shsBootstrapModal" tabindex="-1" aria-labelledby="shsBootstrapModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content">
       
-      <div class="modal-header">
-        <h5 class="modal-title" id="shsBootstrapModalLabel">Nasze Realizacje SHS</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="custom-close-btn" data-bs-dismiss="modal" title="Zamknij galerię">
+        &times;
       </div>
 
       <div class="modal-body p-0">
